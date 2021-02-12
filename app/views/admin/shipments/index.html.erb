@@ -1,0 +1,6 @@
+<h1>ADMIN SHIPMENTS</h1>
+<% @shipments.each do |shipment| %>
+  <p><%= shipment.name %> </p>
+  <p><%= shipment.note %> </p>
+  <p><%= shipment.delivery_date %> </p>
+<% end %>

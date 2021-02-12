@@ -1,0 +1,30 @@
+<body class="gray-bg" data-gr-c-s-loaded="true">
+  <div class="loginColumns animated fadeInDown">
+    <div class="row">
+      <div class="col-md-6">
+        <h2 class="font-bold">Welcome to IN+</h2>
+        <p>
+          This is admin side.
+        </p>
+        <p>
+          <small>Please go to the main page unless you are admin !</small>
+        </p>
+      </div>
+      <div class="col-md-6">
+        <div class="ibox-content">
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "m-t", role: "form"}) do |f| %>
+            <div class="form-group">
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Email" %>
+            </div>
+            <div class="form-group">
+              <%= f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: "Password" %>
+            </div>
+            <div class="button">
+              <button type="submit" class="btn btn-primary block full-width m-b">Login</button>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
