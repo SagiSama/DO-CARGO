@@ -10,7 +10,22 @@
 
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="pace-done">
+    <div id="wrapper">
+      <nav class="navbar-default navbar-static-side" role="navigation">
+        <%= render "layouts/navigation" %>
+      </nav>
+      <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="row border-bottom">
+          <%= render "layouts/header" %>
+        </div>
+        <div class="wrapper wrapper-content">
+          <%= yield %>
+        </div>
+        <div class="footer fixed">
+          <%= render "layouts/footer" %>
+        </div>
+      </div>
+    </body>
   </body>
 </html>
