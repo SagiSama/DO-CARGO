@@ -1,0 +1,36 @@
+{
+  "name": "cargo",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.2",
+    "@rails/actioncable": "^6.0.0",
+    "@rails/activestorage": "^6.0.0",
+    "@rails/ujs": "^6.0.0",
+    "@rails/webpacker": "4.3.0",
+    "animate": "^1.0.0",
+    "babel": "^6.23.0",
+    "blueimp-gallery": "^3.3.0",
+    "bootstrap": "^4.6.0",
+    "buble": "^0.16.0",
+    "classie": "^1.0.0",
+    "font-awesome": "^4.7.0",
+    "gallery": "^1.0.2",
+    "inspinia": "^2.6.5",
+    "jquery": "^3.5.1",
+    "metismenu": "^3.0.6",
+    "metrics": "^0.1.21",
+    "pace": "^0.0.4",
+    "popper": "^1.0.1",
+    "popper.js": "^1.16.1",
+    "slick-carousel": "^1.8.1",
+    "slimscroll": "^0.9.1",
+    "turbolinks": "^5.2.0",
+    "wow": "^0.0.6",
+    "wow.js": "^1.2.2",
+    "yarn": "^1.22.10"
+  },
+  "version": "0.1.0",
+  "devDependencies": {
+    "webpack-dev-server": "^3.11.2"
+  }
+}
