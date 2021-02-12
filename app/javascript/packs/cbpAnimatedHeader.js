@@ -9,12 +9,10 @@
  * http://www.codrops.com
  */
 var cbpAnimatedHeader = (function() {
-
     var docElem = document.documentElement,
         header = document.querySelector( '.navbar-default' ),
         didScroll = false,
         changeHeaderOn = 200;
-
     function init() {
         window.addEventListener( 'scroll', function( event ) {
             if( !didScroll ) {
@@ -23,22 +21,19 @@ var cbpAnimatedHeader = (function() {
             }
         }, false );
     }
-
     function scrollPage() {
         var sy = scrollY();
         if ( sy >= changeHeaderOn ) {
-            classie.add( header, 'navbar-scroll' );
+            $(header).addClass('navbar-scroll')
         }
         else {
-            classie.remove( header, 'navbar-scroll' );
+            $(header).removeClass('navbar-scroll')
         }
         didScroll = false;
     }
-
     function scrollY() {
         return window.pageYOffset || docElem.scrollTop;
     }
-
     init();
 
 })();

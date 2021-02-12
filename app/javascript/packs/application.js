@@ -17,5 +17,4 @@ require("channels")
 
 require('jquery')
 require('packs/theme.js')
-
 import '../../assets/stylesheets/application.scss'

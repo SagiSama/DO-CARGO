@@ -1,11 +1,10 @@
 // INSPINIA Landing Page Custom scripts
 $(document).ready(function () {
 
-    // Highlight the top nav as scrolling
     $('body').scrollspy({
-        target: '.navbar-fixed-top',
+        target: '#navbar',
         offset: 80
-    })
+    });
 
     // Page scrolling feature
     $('a.page-scroll').bind('click', function(event) {
@@ -16,10 +15,4 @@ $(document).ready(function () {
         event.preventDefault();
         $("#navbar").collapse('hide');
     });
-
 });
-
-// Activate WOW.js plugin for animation on scrol
-import WOW from 'wow.js/dist/wow.js';
-
-new WOW().init();
