@@ -16,5 +16,10 @@ require("channels")
 // const imagePath = (name) => images(name, true)
 
 require('jquery')
+require('bootstrap')
 require('packs/theme.js')
+
+import 'popper.js'
+import 'metismenu'
+import 'slimscroll'
 import '../../assets/stylesheets/application.scss'

@@ -23,6 +23,7 @@
     "metrics": "^0.1.21",
     "moment": "^2.29.1",
     "nice-react-carousel": "^1.1.0",
+    "node-sass": "^4.14.1",
     "pace": "^0.0.4",
     "popper": "^1.0.1",
     "popper.js": "^1.16.1",
