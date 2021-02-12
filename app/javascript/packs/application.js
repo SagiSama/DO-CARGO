@@ -22,4 +22,5 @@ require('packs/theme.js')
 import 'popper.js'
 import 'metismenu'
 import 'slimscroll'
-import '../../assets/stylesheets/application.scss'
+import 'bootstrap'
+import '../stylesheets/application.scss'
