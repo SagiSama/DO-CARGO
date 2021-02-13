@@ -7,20 +7,8 @@ class ProfilesController < ApplicationController
   p '_____________________signded worker show____________________-'
   end
 
-  def create
-  p '_____________________WORKER create INDEX____________________-'
-  end
-
-  def edit
-  p '_____________________WORKER edit INDEX____________________-'
-  end
-
   def update
-  p '_____________________WORKER update INDEX____________________-'
-  end
-
-  def destroy
-  p '_____________________WORKER destroy INDEX____________________-'
+  p '_____________________signded worker upudate____________________-'
   end
 
   private
@@ -29,8 +17,8 @@ class ProfilesController < ApplicationController
     @worker = Worker.find_by(id: current_worker.id)
   end
 
-  def shipment_params
-    params.require(:shipment).permit(:name, :note, :delivery_date)
+  def worker_params
+    params.require(:profile).permit(:name, :email, :delivery_date)
   end
 end
 

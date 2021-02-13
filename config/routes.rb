@@ -5,13 +5,15 @@ Rails.application.routes.draw do
   root 'landing#landing_page'
 
   namespace :admin do
-    root 'profiles#show'
+    root 'dashboards#index'
+    resources :dashboards, only: :index
     resource :profile, except: %i[create destroy]
     resources :shipments
   end
 
   namespace :worker do
-    root 'profiles#show'
+    root 'dashboards#index'
+    resources :dashboards, only: :index
     resource :profile, except: %i[create destroy]
     resources :shipments
   end
