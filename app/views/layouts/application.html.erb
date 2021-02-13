@@ -1,32 +1,18 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Cargo</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Cargo</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-  </head>
+</head>
 
-  <body class="pace-done">
-    <div id="wrapper">
-      <nav class="navbar-default navbar-static-side" role="navigation">
-        <%= render "layouts/navigation" %>
-      </nav>
-
-      <div id="page-wrapper" class="gray-bg dashbard-1">
-        <div class="row border-bottom">
-          <%= render "layouts/header" %>
-        </div>
-
-        <%= yield %>
-
-        <div class="footer">
-          <%= render "layouts/footer" %>
-        </div>
-      </div>
-    </body>
-  </body>
+<body>
+<%= yield %>
+</body>
 </html>
+<!DOCTYPE html>
+<html>
