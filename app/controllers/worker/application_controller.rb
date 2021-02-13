@@ -7,7 +7,7 @@ class ApplicationController < ApplicationController
   private
 
   def monitoring_layout
-    'monitoring'
+    'worker/layout'
   end
 end
 
