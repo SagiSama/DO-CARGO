@@ -1,2 +1,4 @@
 mn:
-  hello: "Сайнуу!"
+  hello: "Сайнуу"
+  workers_count: "Ажилчдын тоо"
+  shipments_count: "Хүрэлтийн тоо"
