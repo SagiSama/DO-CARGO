@@ -1,0 +1,213 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>Project list</h2>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="index.html">Home</a>
+            </li>
+            <li class="breadcrumb-item active">
+                <strong>Worker show</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInUp">
+    <div class="row">
+        <div class="col-lg-9">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="m-b-md">
+                                <a href="<%= edit_admin_worker_path(@worker) %>" class="btn btn-white btn-xs float-right">Edit worker</a>
+                                <h2><%= @worker.name %></h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <dl class="row mb-0">
+                                <div class="col-sm-4 text-sm-right">
+                                    <dt>Status:</dt>
+                                </div>
+                                <div class="col-sm-8 text-sm-left">
+                                    <dd class="mb-1"><span class="label label-primary">Active</span></dd>
+                                </div>
+                            </dl>
+                            <dl class="row mb-0">
+                                <div class="col-sm-4 text-sm-right">
+                                    <dt>Email:</dt>
+                                </div>
+                                <div class="col-sm-8 text-sm-left">
+                                    <dd class="mb-1"> @worker.email</dd>
+                                </div>
+                            </dl>
+
+                        </div>
+                        <div class="col-lg-6" id="cluster_info">
+
+                            <dl class="row mb-0">
+                                <div class="col-sm-4 text-sm-right">
+                                    <dt>Last Updated:</dt>
+                                </div>
+                                <div class="col-sm-8 text-sm-left">
+                                    <dd class="mb-1">16.08.2014 12:15:57</dd>
+                                </div>
+                            </dl>
+                            <dl class="row mb-0">
+                                <div class="col-sm-4 text-sm-right">
+                                    <dt>Created:</dt>
+                                </div>
+                                <div class="col-sm-8 text-sm-left">
+                                    <dd class="mb-1"> 10.07.2014 23:36:57</dd>
+                                </div>
+                            </dl>
+                            <dl class="row mb-0">
+                                <div class="col-sm-4 text-sm-right">
+                                    <dt>Participants:</dt>
+                                </div>
+                                <div class="col-sm-8 text-sm-left">
+                                    <dd class="project-people mb-1">
+                                        <a href=""><img alt="image" class="rounded-circle" src="img/a3.jpg"></a>
+                                    </dd>
+                                </div>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <dl class="row mb-0">
+                                <div class="col-sm-2 text-sm-right">
+                                    <dt>Completed:</dt>
+                                </div>
+                                <div class="col-sm-10 text-sm-left">
+                                    <dd>
+                                        <div class="progress m-b-1">
+                                            <div style="width: 60%;" class="progress-bar progress-bar-striped progress-bar-animated"></div>
+                                        </div>
+                                        <small>Project completed in <strong>60%</strong>. Remaining close the project, sign a contract and invoice.</small>
+                                    </dd>
+                                </div>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="row m-t-sm">
+                        <div class="col-lg-12">
+                            <div class="panel blank-panel">
+                                <div class="panel-heading">
+                                    <div class="panel-options">
+                                        <ul class="nav nav-tabs">
+                                            <li><a class="nav-link active" href="#tab-1" data-toggle="tab">Users messages</a></li>
+                                            <li><a class="nav-link" href="#tab-2" data-toggle="tab">Last activity</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="panel-body">
+
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="tab-1">
+                                            <div class="feed-activity-list">
+                                                <div class="feed-element">
+                                                    <a href="#" class="float-left">
+                                                        <img alt="image" class="rounded-circle" src="img/a2.jpg">
+                                                    </a>
+
+                                                    <div class="media-body ">
+                                                        <small class="float-right">2h ago</small>
+                                                        <strong>Mark Johnson</strong> posted message on <strong>Monica Smith</strong> site. <br>
+                                                        <small class="text-muted">Today 2:10 pm - 12.06.2014</small>
+                                                        <div class="well">
+                                                            Over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="feed-element">
+                                                    <a href="#" class="float-left">
+                                                        <img alt="image" class="rounded-circle" src="img/a3.jpg">
+                                                    </a>
+
+                                                    <div class="media-body ">
+                                                        <small class="float-right">2h ago</small>
+                                                        <strong>Janet Rosowski</strong> add 1 photo on <strong>Monica Smith</strong>. <br>
+                                                        <small class="text-muted">2 days ago at 8:30am</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="tab-pane" id="tab-2">
+
+                                            <table class="table table-striped">
+                                                <thead>
+                                                <tr>
+                                                    <th>Status</th>
+                                                    <th>Title</th>
+                                                    <th>Start Time</th>
+                                                    <th>End Time</th>
+                                                    <th>Comments</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <span class="label label-primary"><i class="fa fa-check"></i> Completed</span>
+                                                    </td>
+                                                    <td>
+                                                        Create project in webapp
+                                                    </td>
+                                                    <td>
+                                                        12.07.2014 10:10:1
+                                                    </td>
+                                                    <td>
+                                                        14.07.2014 10:16:36
+                                                    </td>
+                                                    <td>
+                                                        <p class="small">
+                                                            Lorem Ipsum.
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="wrapper wrapper-content project-manager">
+                <h4>Worker description</h4>
+                <img src="img/zender_logo.png" class="img-fluid">
+
+                <p class="small">If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing</p>
+
+                <p class="small font-bold">
+                    <span><i class="fa fa-circle text-warning"></i> High priority</span>
+                </p>
+                <h5>Project tag</h5>
+                <ul class="tag-list" style="padding: 0">
+                    <li><a href=""><i class="fa fa-tag"></i> Zender</a></li>
+                    <li><a href=""><i class="fa fa-tag"></i> Lorem ipsum</a></li>
+                </ul>
+                <h5>Project files</h5>
+                <ul class="list-unstyled project-files">
+                    <li><a href=""><i class="fa fa-file-picture-o"></i> Logo_zender_company.jpg</a></li>
+                </ul>
+                <div class="text-center m-t-md">
+                    <a href="#" class="btn btn-xs btn-primary">Add files</a>
+                    <a href="#" class="btn btn-xs btn-primary">Report contact</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
