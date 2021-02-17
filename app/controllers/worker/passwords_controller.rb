@@ -1,23 +1,31 @@
-class Worker::PasswordsController < Devise::PasswordsController
-  # GET /resource/password/new
-  # def new
-  #   super
-  # end
+module Worker
 
-  # POST /resource/password
-  # def create
-  #   super
-  # end
+class PasswordsController < Devise::PasswordsController
 
-  # GET /resource/password/edit?reset_password_token=abcdef
-  # def edit
-  #   super
-  # end
+  def new
+  p '________________________RESET_PASSWORD_____________-',params
+  p '________________________RESET_PASSWORD_____________-'
+    super
+  end
+
+  def create
+  p '_______CREATE____________RESET_PASSWORD_____________-',params
+  p '_______CREATE_________________RESET_PASSWORD_____________-'
+    super
+  end
+
+  def edit
+    p '_______EDIT PASS_____________-',params
+    p '_______EDIT PASS_____________-'
+    super
+  end
 
   # PUT /resource/password
-  # def update
-  #   super
-  # end
+  def update
+  p '_______UPDATE PASS_____________-',params
+      p '_______UPDATE PASS_____________-'
+    super
+  end
 
   # protected
 
@@ -29,4 +37,6 @@ class Worker::PasswordsController < Devise::PasswordsController
   # def after_sending_reset_password_instructions_path_for(resource_name)
   #   super(resource_name)
   # end
+end
+
 end

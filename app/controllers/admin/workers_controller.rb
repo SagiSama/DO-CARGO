@@ -36,7 +36,6 @@ class WorkersController < ApplicationController
     end
   end
 
-
   def destroy
     @worker.destroy
     redirect_to admin_workers_path

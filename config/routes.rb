@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :admins, controllers: { sessions: 'admin/sessions' }, class_name: "Admin::Admin"
-  devise_for :workers, controllers: { sessions: 'worker/sessions' }, class_name: "Worker::Worker"
+  devise_for :workers, controllers: { sessions: 'worker/sessions', passwords: 'worker/passwords' }, class_name: "Worker::Worker"
 
   root 'landing#landing_page'
 
