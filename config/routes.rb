@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :dashboards, only: :index
     resource :profile, except: %i[create destroy]
     resources :shipments
+    resources :workers
   end
 
   namespace :worker do
