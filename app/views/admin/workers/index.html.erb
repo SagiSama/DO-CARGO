@@ -59,11 +59,18 @@
                       </div>
                     </td>
                     <td class="project-people">
-                      <a href=""><img alt="image" class="rounded-circle" src="img/a3.jpg"></a>
+                      <a href="<%= admin_worker_path(worker) %>">
+                        <% if worker.avatar.attached? %>
+                          <%= image_tag(url_for(worker.avatar), alt: 'image', class: "rounded-circle") %>
+                        <% else %>
+                          <%= image_tag 'profile_empty.jpg', alt: 'image', class: 'rounded-circle' %>
+                        <% end %>
+                      </a>
                     </td>
                     <td class="project-actions">
                       <a href="<%= admin_worker_path(worker) %>" class="btn btn-white btn-sm"><i class="fa fa-folder"></i> View </a>
                       <a href="<%= edit_admin_worker_path(worker) %>" class="btn btn-white btn-sm"><i class="fa fa-pencil"></i> Edit </a>
+                      <%= link_to 'Delete', admin_worker_path(worker), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-white btn btn-xs btn-danger btn-outline" %>
                     </td>
                   </tr>
                 <% end %>

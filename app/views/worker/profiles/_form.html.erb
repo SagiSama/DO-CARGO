@@ -1,0 +1,60 @@
+<div class="row">
+    <div class="col-md-4">
+        <div class="ibox ">
+            <div class="ibox-title">
+                <h5>Profile Detail</h5>
+            </div>
+            <div>
+                <% if @profile.avatar.attached? %>
+                    <div class="ibox-content no-padding border-left-right">
+                        <%= image_tag(url_for(@profile.avatar), alt: 'image', class: "img-fluid") %>
+                    </div>
+                    <div class="ibox-content profile-content">
+                        <%= @profile.avatar.filename %>
+                    </div>
+                <% else %>
+                    <div class="ibox-content no-padding border-left-right">
+                        <%= image_tag 'profile_empty.jpg', alt: 'image', class: 'img-fluid' %>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="ibox ">
+            <div class="ibox-title">
+                <h5>Activites</h5>
+            </div>
+            <div class="ibox-content">
+                <div class="ibox-content">
+                    <%= form_for @profile, url: worker_profile_path do |f| %>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Avatar</label>
+                            <div class="col-sm-10">
+                                <%= f.file_field :avatar %>
+                            </div>
+                        </div>
+                        <div class="form-group  row"><label class="col-sm-2 col-form-label">Name</label>
+                            <div class="col-sm-10">
+                                <%= f.text_field :name, class: "form-control" %>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group row"><label class="col-sm-2 col-form-label">Email</label>
+                            <div class="col-sm-10">
+                                <%= f.text_field :email, class: "form-control" %>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group row">
+                            <div class="col-sm-4 col-sm-offset-2">
+                                <%= link_to 'Cancel', worker_profile_path, class: "btn btn-white btn-sm" %>
+                                <button class="btn btn-primary btn-sm" type="submit">Save changes</button>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

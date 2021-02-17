@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   namespace :worker do
     root 'dashboards#index'
     resources :dashboards, only: :index
-    resource :profile, except: %i[create destroy]
+    resource :profile, except: %i[new create destroy]
     resources :shipments
   end
 end

@@ -1,3 +1,3 @@
-class Worker::Worker < ApplicationRecord
+class Worker::Worker < Base::Worker
   devise :database_authenticatable, :recoverable, :validatable
 end
