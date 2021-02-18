@@ -1,3 +1,7 @@
-class Admin::Admin < ApplicationRecord
+module Admin
+
+class Admin < ApplicationRecord
   devise :database_authenticatable
+end
+
 end
