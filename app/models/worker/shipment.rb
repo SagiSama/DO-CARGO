@@ -1,6 +1,6 @@
 module Worker
 
-class Shipment < ApplicationRecord
+class Shipment < Base::Shipment
 end
 
 end

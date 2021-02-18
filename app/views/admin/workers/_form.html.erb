@@ -46,9 +46,3 @@
         </div>
     </div>
 </div>
-
-<% if @worker.errors.full_messages.any? %>
-<% @worker.errors.full_messages.each do |error_message| %>
-<%= error_message %> <br />
-<% end %>
-<% end %>

@@ -1,122 +1,80 @@
-<div class="row  border-bottom white-bg dashboard-header">
-    <div class="col-md-3">
-        <h2>Welcome</h2>
-        <small>You have 42 messages and 6 notifications.</small>
-        <ul class="list-group clear-list m-t">
-            <li class="list-group-item fist-item">
-                <span class="float-right">
-                    09:00 pm
-                </span>
-                <span class="label label-success">1</span> Please contact me
-            </li>
-            <li class="list-group-item">
-                <span class="float-right">
-                    10:16 am
-                </span>
-                <span class="label label-info">2</span> Sign a contract
-            </li>
-            <li class="list-group-item">
-                <span class="float-right">
-                    08:22 pm
-                </span>
-                <span class="label label-primary">3</span> Open new shop
-            </li>
-            <li class="list-group-item">
-                <span class="float-right">
-                    11:06 pm
-                </span>
-                <span class="label label-default">4</span> Call back to Sylvia
-            </li>
-            <li class="list-group-item">
-                <span class="float-right">
-                    12:00 am
-                </span>
-                <span class="label label-primary">5</span> Write a letter to Sandra
-            </li>
-        </ul>
-    </div>
-    <div class="col-md-6">
-        <div class="flot-chart dashboard-chart">
-            <div class="flot-chart-content" id="flot-dashboard-chart" style="padding: 0px; position: relative;"><canvas class="flot-base" width="1105" height="360" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 552.5px; height: 180px;"></canvas><div class="flot-text" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);"><div class="flot-x-axis flot-x1-axis xAxis x1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px;"><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 69px; top: 163px; left: 11px; text-align: center;">0.0</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 69px; top: 163px; left: 93px; text-align: center;">2.5</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 69px; top: 163px; left: 175px; text-align: center;">5.0</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 69px; top: 163px; left: 256px; text-align: center;">7.5</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 69px; top: 163px; left: 335px; text-align: center;">10.0</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 69px; top: 163px; left: 417px; text-align: center;">12.5</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 69px; top: 163px; left: 498px; text-align: center;">15.0</div></div><div class="flot-y-axis flot-y1-axis yAxis y1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px;"><div class="flot-tick-label tickLabel" style="position: absolute; top: 150px; left: 7px; text-align: right;">0</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 113px; left: 1px; text-align: right;">10</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 75px; left: 1px; text-align: right;">20</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 38px; left: 1px; text-align: right;">30</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 0px; left: 1px; text-align: right;">40</div></div></div><canvas class="flot-overlay" width="1105" height="360" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 552.5px; height: 180px;"></canvas></div>
-        </div>
-        <div class="row text-left">
-            <div class="col">
-                <div class=" m-l-md">
-                <span class="h5 font-bold m-t block">$ 406,100</span>
-                <small class="text-muted m-b block">Sales marketing report</small>
-                </div>
-            </div>
-            <div class="col">
-                <span class="h5 font-bold m-t block">$ 150,401</span>
-                <small class="text-muted m-b block">Annual sales revenue</small>
-            </div>
-            <div class="col">
-                <span class="h5 font-bold m-t block">$ 16,822</span>
-                <small class="text-muted m-b block">Half-year revenue margin</small>
-            </div>
-
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="statistic-box">
-        <h4>
-            Project Beta progress
-        </h4>
-        <p>
-            You have two project with not compleated task.
-        </p>
-            <div class="row text-center">
-                <div class="col-lg-6">
-                    <canvas id="doughnutChart2" width="160" height="160" style="margin: 18px auto 0px; display: block; height: 80px; width: 80px;"></canvas>
-                    <h5>Kolter</h5>
-                </div>
-                <div class="col-lg-6">
-                    <canvas id="doughnutChart" width="160" height="160" style="margin: 18px auto 0px; display: block; height: 80px; width: 80px;"></canvas>
-                    <h5>Maxtor</h5>
-                </div>
-            </div>
-            <div class="m-t">
-                <small>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small>
-            </div>
-
-        </div>
-    </div>
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-sm-4">
+    <h2>Project list</h2>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="<%= worker_shipments_path %>">Home</a>
+      </li>
+      <li class="breadcrumb-item active">
+        <strong>Shipment list</strong>
+      </li>
+    </ol>
+  </div>
 </div>
 
-<h1>WORKER SHIPMENTS INFO !!!</h1>
-<% @shipments.each do |shipment| %>
-  <p><%= shipment.name %> </p>
-  <p><%= shipment.note %> </p>
-  <p><%= shipment.delivery_date %> </p>
-<% end %>
-<hr>
-<% @shipments.each do |shipment| %>
-  <p><%= shipment.name %> </p>
-  <p><%= shipment.note %> </p>
-  <p><%= shipment.delivery_date %> </p>
-<% end %>
-<hr>
-<% @shipments.each do |shipment| %>
-  <p><%= shipment.name %> </p>
-  <p><%= shipment.note %> </p>
-  <p><%= shipment.delivery_date %> </p>
-<% end %>
-<hr>
-<% @shipments.each do |shipment| %>
-  <p><%= shipment.name %> </p>
-  <p><%= shipment.note %> </p>
-  <p><%= shipment.delivery_date %> </p>
-<% end %>
-<hr>
-<% @shipments.each do |shipment| %>
-  <p><%= shipment.name %> </p>
-  <p><%= shipment.note %> </p>
-  <p><%= shipment.delivery_date %> </p>
-<% end %>
-<hr>
-<% @shipments.each do |shipment| %>
-  <p><%= shipment.name %> </p>
-  <p><%= shipment.note %> </p>
-  <p><%= shipment.delivery_date %> </p>
-<% end %>
-<hr>
+<div class="wrapper wrapper-content animated fadeInUp">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="ibox">
+        <div class="ibox-title">
+          <h5>All workers</h5>
+          <div class="ibox-tools">
+            <a href="<%= new_worker_shipment_path %>" class="btn btn-primary btn-xs">Create new shipment</a>
+          </div>
+        </div>
+        <div class="ibox-content">
+          <div class="m-b-sm m-t-sm">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <button tabindex="-1" class="btn btn-white btn-sm" type="button"><i class="fa fa-refresh"></i> Refresh</button>
+              </div>
+              <input type="text" class="form-control form-control-sm">
+              <div class="input-group-append">
+                <button tabindex="-1" class="btn btn-primary btn-sm" type="button">Go!</button>
+              </div>
+            </div>
+          </div>
+          <div class="project-list">
+            <table class="table table-hover">
+              <tbody>
+                <% @shipments.each do |shipment| %>
+                  <tr>
+                    <td class="project-status">
+                      <span class="label label-primary">Code</span>
+                    </td>
+                    <td class="project-title">
+                      <a href="<%= worker_shipment_path(shipment) %>"><%= shipment.code %></a>
+                      <br>
+                      <small><%= shipment.name %></small>
+                      <small><%= shipment.note %></small>
+                    </td>
+                    <td class="project-completion">
+                      <small>Completion with: 48%</small>
+                      <div class="progress progress-mini">
+                        <div style="width: 48%;" class="progress-bar"></div>
+                      </div>
+                    </td>
+                    <td class="project-people">
+                      <a href="<%= worker_shipment_path(shipment) %>">
+                        <% if shipment.images.attached? %>
+                          <% shipment.images.each do |image| %>
+                            <%= image_tag(url_for(image), alt: 'image', class: "rounded-circle") %>
+                          <% end %>
+                        <% end %>
+                      </a>
+                    </td>
+                    <td class="project-actions">
+                      <a href="<%= worker_shipment_path(shipment) %>" class="btn btn-white btn-sm"><i class="fa fa-folder"></i> View </a>
+                      <a href="<%= edit_worker_shipment_path(shipment) %>" class="btn btn-white btn-sm"><i class="fa fa-pencil"></i> Edit </a>
+                      <%= link_to 'Delete', worker_shipment_path(shipment), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-white btn btn-xs btn-danger btn-outline" %>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
