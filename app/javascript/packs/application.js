@@ -17,10 +17,16 @@ require("channels")
 
 require('jquery')
 require('bootstrap')
+require('slimscroll')
+require('footable')
+require('metismenu')
+require('popper.js')
 require('packs/theme.js')
 
-import 'popper.js'
-import 'metismenu'
-import 'slimscroll'
+import 'jquery'
 import 'bootstrap'
+import 'slimscroll'
+import 'footable'
+import 'metismenu'
+import 'popper.js'
 import '../stylesheets/application.scss'
