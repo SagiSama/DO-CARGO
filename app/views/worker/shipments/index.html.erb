@@ -14,45 +14,56 @@
 
 <div class="wrapper wrapper-content animated fadeInRight ecommerce">
   <div class="ibox-content m-b-sm border-bottom">
-    <div class="row">
-      <div class="col-sm-4">
-        <div class="form-group">
-          <label class="col-form-label" for="product_name">Product Name</label>
-          <input type="text" id="product_name" name="product_name" value="" placeholder="Product Name" class="form-control">
+    <%= form_with url: worker_shipments_path, method: :get do |f| %>
+      <div class="row">
+        <div class="col-sm-2">
+          <div class="form-group">
+            <label class="col-form-label" for="name">Name</label>
+            <%= f.text_field :name, placeholder: 'Name', class: 'form-control' %>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="form-group">
+            <label class="col-form-label" for="price">Price</label>
+            <input type="text" id="price" name="price" value="" placeholder="Price" class="form-control">
+          </div>
+        </div>
+        <div class="col-sm-4 row">
+          <div class="form-group col-sm-6">
+            <label class="col-form-label">Start Date</label>
+            <%= f.date_field :start_date, placeholder: 'Delivery date', class: 'form-control' %>
+          </div>
+          <div class="form-group col-sm-6">
+            <label class="col-form-label">End Date</label>
+            <%= f.date_field :end_date, placeholder: 'Delivery date', class: 'form-control' %>
+          </div>
+        </div>
+        <div class="col-sm-4 input-group">
+          <div class="form-group">
+            <label class="col-form-label" for="status">Status</label>
+            <select name="status" id="status" class="form-control">
+              <option value="1" selected>Enabled</option>
+              <option value="0">Disabled</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="col-form-label" for="status">.</label>
+            <span class="input-group-append">
+            <%= f.submit "Create", class: 'btn btn-primary' %>
+          </span>
+          </div>
         </div>
       </div>
-      <div class="col-sm-2">
-        <div class="form-group">
-          <label class="col-form-label" for="price">Price</label>
-          <input type="text" id="price" name="price" value="" placeholder="Price" class="form-control">
-        </div>
-      </div>
-      <div class="col-sm-2">
-        <div class="form-group">
-          <label class="col-form-label" for="quantity">Quantity</label>
-          <input type="text" id="quantity" name="quantity" value="" placeholder="Quantity" class="form-control">
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="form-group">
-          <label class="col-form-label" for="status">Status</label>
-          <select name="status" id="status" class="form-control">
-            <option value="1" selected>Enabled</option>
-            <option value="0">Disabled</option>
-          </select>
-        </div>
-      </div>
-    </div>
+    <% end %>
   </div>
-
   <div class="row">
     <div class="col-lg-12">
       <div class="ibox">
         <div class="ibox-content">
-            <table class="footable table table-stripped toggle-arrow-tiny default" data-page-size="15">
+          <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="15">
             <thead>
               <tr>
-                <th data-toggle="true">Product Name</th>
+                <th data-toggle="true">Product Name<i class="fa fa-fw fa-sort"></i></th>
                 <th data-hide="phone">Model</th>
                 <th data-hide="all">Description</th>
                 <th data-hide="phone">Price</th>
@@ -63,41 +74,17 @@
               </tr>
             </thead>
             <tbody>
-              <% @shipments.each do |shipment|%>
-                <tr>
-                  <td>
-                    <%= shipment.name %>
-                  </td>
-                  <td>
-                    Model 10
-                  </td>
-                  <td>
-                    <%= shipment.note %>
-                  </td>
-                  <td>
-                    $43.00
-                  </td>
-                  <td>
-                    7600
-                  </td>
-                  <td>
-                    <span class="label label-primary">Enable</span>
-                  </td>
-                  <td>
-                    <%= shipment.delivery_date %>
-                  </td>
-                  <td class="text-right">
-                    <div class="btn-group">
-                      <button class="btn-white btn btn-xs">View</button>
-                      <button class="btn-white btn btn-xs">Edit</button>
-                    </div>
-                  </td>
-                </tr>
+              <% if @shipments %>
+                <%= render 'table' %>
               <% end%>
             </tbody>
             <tfoot>
             <tr>
               <td colspan="6">
+                <%= @shipments.current_page %>
+                <%= @shipments.limit_value %>
+                <%= @shipments.total_count %>
+                <%= paginate @shipments %>
                 <ul class="pagination float-right"></ul>
               </td>
             </tr>

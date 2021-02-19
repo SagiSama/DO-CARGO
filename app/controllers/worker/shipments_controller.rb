@@ -4,8 +4,7 @@ class ShipmentsController < ApplicationController
   before_action :target_shipment, except: %i[index new create]
 
   def index
-  p '_____________________WORKER shipments INDEX____________________-'
-    @shipments = Shipment.all
+    @shipments = Shipment.search(params).page(params[:page]).per(params[:limit])
   end
 
   def show
