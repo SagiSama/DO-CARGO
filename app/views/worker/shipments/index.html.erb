@@ -60,7 +60,7 @@
     <div class="col-lg-12">
       <div class="ibox">
         <div class="ibox-content">
-          <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="15">
+          <table class="footable table table-stripped toggle-arrow-tiny" data-paging="false">
             <thead>
               <tr>
                 <th data-toggle="true">Product Name<i class="fa fa-fw fa-sort"></i></th>
@@ -81,11 +81,9 @@
             <tfoot>
             <tr>
               <td colspan="6">
-                <%= @shipments.current_page %>
-                <%= @shipments.limit_value %>
-                <%= @shipments.total_count %>
-                <%= paginate @shipments %>
-                <ul class="pagination float-right"></ul>
+                <ul class="pagination float-right">
+                  <%= paginate @shipments %>
+                </ul>
               </td>
             </tr>
             </tfoot>
@@ -98,6 +96,6 @@
 
 <script>
   $(document).ready(function() {
-    $('.footable').footable();
+    $('.footable').footable({ paginate:false });
   });
 </script>
