@@ -1,31 +1,49 @@
-<% @shipments.each do |shipment| %>
+<table class="footable table table-stripped toggle-arrow-tiny" data-paging="false">
+    <thead>
     <tr>
-        <td>
-            <span class="footable-arrow"><a>›</a></span>
-            <%= shipment.name %>
-        </td>
-        <td><%= shipment.code %></td>
-        <td><%= shipment.note %></td>
-        <td>$43.00</td>
-        <td>7600</td>
-        <td><span class="label label-primary">Enable</span></td>
-        <td><%= shipment.delivery_date %></td>
-        <td class="text-right">
-            <div class="btn-group">
-                <a href="<%= worker_shipment_path(shipment) %>" class="btn btn-white btn-sm"><i class="fa fa-folder"></i> View </a>
-                <a href="<%= edit_worker_shipment_path(shipment) %>" class="btn btn-white btn-sm"><i class="fa fa-pencil"></i> Edit </a>
-            </div>
-        </td>
+        <th data-toggle="true">Name<i class="fa fa-fw fa-sort"></i></th>
+        <th data-hide="phone">Code</th>
+        <th data-hide="all">Description</th>
+        <th data-hide="phone">Price</th>
+        <th data-hide="phone,tablet" >Quantity</th>
+        <th data-hide="phone">Status</th>
+        <th data-hide="phone">Delivery date</th>
+        <th class="text-right" data-sort-ignore="true">Action</th>
     </tr>
-<% end%>
-<tr>
-    <td colspan="6">
-        <ul class="pagination float-right">
-            <%= paginate @shipments %>
-        </ul>
-        <ul>
-            <span> limit: <%= @shipments.limit_value %></span>
-            <span> count: <%= @shipments.total_count %></span>
-        </ul>
-    </td>
-</tr>
+    </thead>
+    <tbody>
+        <% @shipments.each do |shipment| %>
+        <tr>
+            <td>
+                <span class="footable-arrow"><a>›</a></span>
+                <%= shipment.name %>
+            </td>
+            <td><%= shipment.code %></td>
+            <td><%= shipment.note %></td>
+            <td>$43.00</td>
+            <td>7600</td>
+            <td><span class="label label-primary">Enable</span></td>
+            <td><%= shipment.delivery_date %></td>
+            <td class="text-right">
+                <div class="btn-group">
+                    <a href="<%= worker_shipment_path(shipment) %>" class="btn btn-white btn-sm"><i class="fa fa-folder"></i> View </a>
+                    <a href="<%= edit_worker_shipment_path(shipment) %>" class="btn btn-white btn-sm"><i class="fa fa-pencil"></i> Edit </a>
+                </div>
+            </td>
+        </tr>
+        <% end%>
+    </tbody>
+    <tfooter>
+        <tr>
+            <td colspan="6">
+                <ul class="float-right" id="paginator">
+                    <%= paginate @shipments, remote: true %>
+                </ul>
+                <ul>
+                    <span> limit: <%= @shipments.limit_value %></span>
+                    <span> count: <%= @shipments.total_count %></span>
+                </ul>
+            </td>
+        </tr>
+    </tfooter>
+</table>
