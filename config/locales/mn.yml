@@ -2,3 +2,6 @@ mn:
   hello: "Сайнуу"
   workers_count: "Ажилчдын тоо"
   shipments_count: "Хүрэлтийн тоо"
+  global:
+    save_success: '%{subject} амжилттай хадгалагдлаа'
+    save_failure: '%{subject} хадгалах үйлдэл амжилтгүй !'

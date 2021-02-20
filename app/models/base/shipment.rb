@@ -3,6 +3,7 @@ module Base
 class Shipment < ApplicationRecord
   has_many_attached :images
 
+  validates :name, presence: true
   validates :delivery_date, presence: true
 
   after_initialize :preview_code

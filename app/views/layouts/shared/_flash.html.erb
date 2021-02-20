@@ -1,0 +1,3 @@
+<% flash.each do |key, value| %>
+        <%= content_tag :div, value, id: "flash_#{key}" if value.is_a?(String) %>
+<% end %>
