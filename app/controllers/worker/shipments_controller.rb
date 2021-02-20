@@ -5,6 +5,7 @@ class ShipmentsController < ApplicationController
 
   def index
     @shipments = Shipment.search(params).page(params[:page]).per(params[:limit])
+    p '+++++++++++++++++++++++++++',@shipments.total_count
   end
 
   def show
