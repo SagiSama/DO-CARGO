@@ -14,177 +14,125 @@
 
 <div class="wrapper wrapper-content animated fadeInUp">
     <div class="row">
-        <div class="col-lg-9">
-            <div class="ibox">
-                <div class="ibox-content">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="m-b-md">
-                                <a href="<%= edit_worker_shipment_path(@shipment) %>" class="btn btn-white btn-xs float-right">Edit shipment</a>
-                                <h2><%= @shipment.name %></h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <dl class="row mb-0">
-                                <div class="col-sm-4 text-sm-right">
-                                    <dt>Status:</dt>
-                                </div>
-                                <div class="col-sm-8 text-sm-left">
-                                    <dd class="mb-1"><span class="label label-primary">Active</span></dd>
-                                </div>
-                            </dl>
-                            <dl class="row mb-0">
-                                <div class="col-sm-4 text-sm-right">
-                                    <dt>Code:</dt>
-                                </div>
-                                <div class="col-sm-8 text-sm-left">
-                                    <dd class="mb-1"> <%= @shipment.code %></dd>
-                                </div>
-                            </dl>
-                        </div>
-                        <div class="col-lg-6" id="cluster_info">
-                            <dl class="row mb-0">
-                                <div class="col-sm-4 text-sm-right">
-                                    <dt>Last Updated:</dt>
-                                </div>
-                                <div class="col-sm-8 text-sm-left">
-                                    <dd class="mb-1">16.08.2014 12:15:57</dd>
-                                </div>
-                            </dl>
-                            <dl class="row mb-0">
-                                <div class="col-sm-4 text-sm-right">
-                                    <dt>Created:</dt>
-                                </div>
-                                <div class="col-sm-8 text-sm-left">
-                                    <dd class="mb-1"> 10.07.2014 23:36:57</dd>
-                                </div>
-                            </dl>
-                            <dl class="row mb-0">
-                                <div class="col-sm-4 text-sm-right">
-                                    <dt>Participants:</dt>
-                                </div>
-                                <div class="col-sm-8 text-sm-left">
-                                    <dd class="project-people mb-1">
-                                        <a href=""><img alt="image" class="rounded-circle" src=""></a>
-                                    </dd>
-                                </div>
-                            </dl>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <dl class="row mb-0">
-                                <div class="col-sm-2 text-sm-right">
-                                    <dt>Completed:</dt>
-                                </div>
-                                <div class="col-sm-10 text-sm-left">
-                                    <dd>
-                                        <div class="progress m-b-1">
-                                            <div style="width: 60%;" class="progress-bar progress-bar-striped progress-bar-animated"></div>
-                                        </div>
-                                        <small>Project completed in <strong>60%</strong>. Remaining close the project, sign a contract and invoice.</small>
-                                    </dd>
-                                </div>
-                            </dl>
-                        </div>
-                    </div>
-                    <div class="row m-t-sm">
-                        <div class="col-lg-12">
-                            <div class="panel blank-panel">
-                                <div class="panel-heading">
-                                    <div class="panel-options">
-                                        <ul class="nav nav-tabs">
-                                            <li><a class="nav-link active" href="#tab-1" data-toggle="tab">Users messages</a></li>
-                                            <li><a class="nav-link" href="#tab-2" data-toggle="tab">Last activity</a></li>
-                                        </ul>
+        <div class="col-lg-12">
+            <div class="tabs-container">
+                <ul class="nav nav-tabs">
+                    <li><a class="nav-link active" data-toggle="tab" href="#tab-1"> Product info</a></li>
+                    <li><a class="nav-link" data-toggle="tab" href="#tab-2"> Data</a></li>
+                    <li><a class="nav-link" data-toggle="tab" href="#tab-3"> Discount</a></li>
+                    <li><a class="nav-link" data-toggle="tab" href="#tab-4"> Images</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div id="tab-1" class="tab-pane active">
+                        <div class="panel-body">
+                            <fieldset>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Name:
+                                    </label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" placeholder="Product name">
                                     </div>
                                 </div>
-                                <div class="panel-body">
-                                    <div class="tab-content">
-                                        <div class="tab-pane active" id="tab-1">
-                                            <div class="feed-activity-list">
-                                                <div class="feed-element">
-                                                    <a href="#" class="float-left">
-                                                        <img alt="image" class="rounded-circle" src="">
-                                                    </a>
-                                                    <div class="media-body ">
-                                                        <small class="float-right">2h ago</small>
-                                                        <strong>Mark Johnson</strong> posted message on <strong>Monica Smith</strong> site. <br>
-                                                        <small class="text-muted">Today 2:10 pm - 12.06.2014</small>
-                                                        <div class="well">
-                                                            Over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-                                                        </div>
-                                                    </div>
-                                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div id="tab-2" class="tab-pane">
+                        <div class="panel-body">
+                            <fieldset>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">ID:</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" placeholder="543">
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div id="tab-3" class="tab-pane">
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-stripped table-bordered"><thead>
+                                <tr>
+                                    <th>Group</th>
+                                    <th>Quantity</th>
+                                    <th>Discount</th>
+                                    <th style="width: 20%">Date start</th>
+                                    <th style="width: 20%">Date end</th>
+                                    <th>Actions</th>
+                                </tr>
+                                </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>
+                                            <select class="form-control">
+                                                <option selected="">Group 1</option>
+                                                <option>Group 2</option>
+                                                <option>Group 3</option>
+                                                <option>Group 4</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control" placeholder="10">
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control" placeholder="$10.00">
+                                        </td>
+                                        <td>
+                                            <div class="input-group date">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                                <input type="text" class="form-control" value="07/01/2014">
                                             </div>
-                                        </div>
-                                        <div class="tab-pane" id="tab-2">
-                                            <table class="table table-striped">
-                                                <thead>
-                                                <tr>
-                                                    <th>Status</th>
-                                                    <th>Title</th>
-                                                    <th>Start Time</th>
-                                                    <th>End Time</th>
-                                                    <th>Comments</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <span class="label label-primary"><i class="fa fa-check"></i> Completed</span>
-                                                    </td>
-                                                    <td>
-                                                        Create project in webapp
-                                                    </td>
-                                                    <td>
-                                                        12.07.2014 10:10:1
-                                                    </td>
-                                                    <td>
-                                                        14.07.2014 10:16:36
-                                                    </td>
-                                                    <td>
-                                                        <p class="small">
-                                                            Lorem Ipsum.
-                                                        </p>
-                                                    </td>
-                                                </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group date">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                                <input type="text" class="form-control" value="07/01/2014">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-white">
+                                                <i class="fa fa-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="wrapper wrapper-content project-manager">
-                <h4>Worker description</h4>
-                <img src="img/zender_logo.png" class="img-fluid">
-
-                <p class="small">If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing</p>
-
-                <p class="small font-bold">
-                    <span><i class="fa fa-circle text-warning"></i> High priority</span>
-                </p>
-                <h5>Project tag</h5>
-                <ul class="tag-list" style="padding: 0">
-                    <li><a href=""><i class="fa fa-tag"></i> Zender</a></li>
-                    <li><a href=""><i class="fa fa-tag"></i> Lorem ipsum</a></li>
-                </ul>
-                <h5>Project files</h5>
-                <ul class="list-unstyled project-files">
-                    <li><a href=""><i class="fa fa-file-picture-o"></i> Logo_zender_company.jpg</a></li>
-                </ul>
-                <div class="text-center m-t-md">
-                    <a href="#" class="btn btn-xs btn-primary">Add files</a>
-                    <a href="#" class="btn btn-xs btn-primary">Report contact</a>
-
+                    <div id="tab-4" class="tab-pane">
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-stripped">
+                                    <thead>
+                                    <tr>
+                                        <th>Image preview</th>
+                                        <th>Image url</th>
+                                        <th>Sort order</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td><img src="img/gallery/7s.jpg"></td>
+                                        <td><input type="text" class="form-control" disabled="" value="http://mydomain.com/images/image7.png"></td>
+                                        <td><input type="text" class="form-control" value="7"></td>
+                                        <td>
+                                            <button class="btn btn-white">
+                                                <i class="fa fa-trash">
+                                                </i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

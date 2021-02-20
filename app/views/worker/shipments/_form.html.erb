@@ -1,74 +1,118 @@
 <div class="row">
     <div class="col-lg-12">
-        <div class="ibox ">
-            <div class="ibox-title">
-                <h5>All form elements <small>Create shipment.</small></h5>
-                <div class="ibox-tools">
-                    <a class="collapse-link">
-                        <i class="fa fa-chevron-up"></i>
-                    </a>
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-wrench"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#" class="dropdown-item">Config option 1</a>
-                        </li>
-                        <li><a href="#" class="dropdown-item">Config option 2</a>
-                        </li>
-                    </ul>
-                    <a class="close-link">
-                        <i class="fa fa-times"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="ibox-content">
-                <%= form_for @shipment do |f| %>
-                    <div class="form-group  row">
-                        <label class="col-sm-2 col-form-label">Code</label>
-                        <div class="col-sm-10">
-                            <%= f.text_field :code, class: "form-control" %>
+        <div class="tabs-container">
+            <ul class="nav nav-tabs">
+                <li><a class="nav-link active" data-toggle="tab" href="#tab-1"> Product info</a></li>
+                <li><a class="nav-link" data-toggle="tab" href="#tab-2"> Images</a></li>
+            </ul>
+            <%= form_for @shipment do |f| %>
+                <div class="tab-content">
+                    <div id="tab-1" class="tab-pane active">
+                        <div class="panel-body">
+                            <fieldset>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Code:</label>
+                                    <div class="col-sm-10">
+                                        <%= f.text_field :code, placeholder: "Shipment name", class: "form-control" %>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Name:</label>
+                                    <div class="col-sm-10">
+                                        <%= f.text_field :name, placeholder: "Shipment name", class: "form-control" %>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Price:</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Note:</label>
+                                    <div class="col-sm-10">
+                                        <%= f.text_area :note, placeholder: "Shipment description", class: "form-control" %>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Note:</label>
+                                    <div class="col-sm-10">
+                                        <%= f.date_field :delivery_date, placeholder: "Delivery date", class: "form-control" %>
+                                    </div>
+                                </div>
+                            </fieldset>
                         </div>
                     </div>
-                    <div class="hr-line-dashed"></div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Name</label>
-                        <div class="col-sm-10">
-                            <%= f.text_field :name, class: "form-control" %>
+                    <div id="tab-2" class="tab-pane">
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-stripped">
+                                    <thead>
+                                        <tr><th>Image preview</th>
+                                            <th>Image url</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% if @shipment.images.attached? %>
+                                            <tr>
+                                                <th>Uploaded images</th>
+                                                <td colspan="2">
+                                                    <% @shipment.images.each do |image| %>
+                                                        <%= image_tag(url_for(image), disabled: true, class: "img-preview img-preview-sm") %>
+                                                    <% end %>
+                                                </td>
+                                            </tr>
+                                        <% end %>
+                                        <tr>
+                                            <td><img src=""></td>
+                                            <td><%= f.file_field :images, multiple: true %></td>
+                                            <td>
+                                                <button class="btn btn-white">
+                                                    <i class="fa fa-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><img src=""></td>
+                                            <td><%= f.file_field :images, multiple: true %></td>
+                                            <td>
+                                                <button class="btn btn-white">
+                                                    <i class="fa fa-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><img src=""></td>
+                                            <td><%= f.file_field :images, multiple: true %></td>
+                                            <td>
+                                                <button class="btn btn-white">
+                                                    <i class="fa fa-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><img src=""></td>
+                                            <td><%= f.file_field :images, multiple: true %></td>
+                                            <td>
+                                                <button class="btn btn-white">
+                                                    <i class="fa fa-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
-                    <div class="hr-line-dashed"></div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Note</label>
-                        <div class="col-sm-10">
-                            <%= f.text_field :note, class: "form-control" %>
-                        </div>
-                    </div>
-                    <div class="hr-line-dashed"></div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Delivery date</label>
-                        <div class="col-sm-10">
-                            <%= f.date_field :delivery_date, class: "form-control" %>
-                        </div>
-                    </div>
-                    <div class="hr-line-dashed"></div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label"><%= f.label :images %>:</label>
-                        <div class="col-sm-10">
-                            <%= f.file_field :images, multiple: true %>
-                            <%= f.file_field :images, multiple: true %>
-                            <%= f.file_field :images, multiple: true %>
-                            <%= f.file_field :images, multiple: true %>
-                        </div>
-                    </div>
-                    <div class="hr-line-dashed"></div>
                     <div class="form-group row">
                         <div class="col-sm-4 col-sm-offset-2">
                             <%= link_to 'Cancel', worker_shipments_path, class: "btn btn-white btn-sm" %>
-                            <button class="btn btn-primary btn-sm" type="submit">Save</button>
+                            <button class="btn btn-primary btn-sm" type="submit">Save changes</button>
                         </div>
                     </div>
-                <% end %>
-            </div>
+                </div>
+            <% end %>
         </div>
     </div>
 </div>

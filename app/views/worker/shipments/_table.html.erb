@@ -12,8 +12,8 @@
         <td><%= shipment.delivery_date %></td>
         <td class="text-right">
             <div class="btn-group">
-                <button class="btn-white btn btn-xs">View</button>
-                <button class="btn-white btn btn-xs">Edit</button>
+                <a href="<%= worker_shipment_path(shipment) %>" class="btn btn-white btn-sm"><i class="fa fa-folder"></i> View </a>
+                <a href="<%= edit_worker_shipment_path(shipment) %>" class="btn btn-white btn-sm"><i class="fa fa-pencil"></i> Edit </a>
             </div>
         </td>
     </tr>
