@@ -34,7 +34,11 @@
     <tfoot>
         <td colspan="6">
             <ul class="float-right" id="paginator">
-            <%= paginate @shipments, remote: true %>
+                <%= paginate @shipments, remote: true %>
+            </ul>
+            <ul>
+                count: <%= @shipments.total_count %>
+                limit: <%= @shipments.limit_value %>
             </ul>
         </td>
     </tfoot>
