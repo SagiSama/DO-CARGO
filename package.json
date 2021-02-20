@@ -33,6 +33,7 @@
     "slick-carousel": "^1.8.1",
     "slider": "^1.0.4",
     "slimscroll": "^0.9.1",
+    "toastr": "^2.1.4",
     "turbolinks": "^5.2.0",
     "wow": "^0.0.6",
     "wow.js": "^1.2.2",

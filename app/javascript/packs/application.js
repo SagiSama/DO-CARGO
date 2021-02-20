@@ -30,3 +30,5 @@ import 'footable'
 import 'metismenu'
 import 'popper.js'
 import '../stylesheets/application.scss'
+
+global.toastr = require("toastr")
