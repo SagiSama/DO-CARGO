@@ -8,7 +8,3 @@ require('packs/gallery')
 import WOW from 'wow.js/dist/wow.js';
 // Activate WOW.js plugin for animation on scrol
 new WOW().init();
-
-$(document).ready(function() {
-    $('.footable').footable({ paginate: false });
-});
