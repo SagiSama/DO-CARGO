@@ -26,6 +26,7 @@
                 <div class="btn-group">
                     <a href="<%= worker_shipment_path(shipment) %>" class="btn btn-white btn-sm"><i class="fa fa-folder"></i> View </a>
                     <a href="<%= edit_worker_shipment_path(shipment) %>" class="btn btn-white btn-sm"><i class="fa fa-pencil"></i> Edit </a>
+                    <%= link_to 'Delete', worker_shipment_path(shipment), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-white btn btn-xs btn-danger btn-outline" %>
                 </div>
             </td>
         </tr>

@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2021_02_17_134244) do
   end
 
   create_table "shipments", force: :cascade do |t|
-    t.string "code", default: "", null: false
+    t.string "code", default: ""
     t.string "name", default: ""
     t.string "note", default: ""
     t.datetime "delivery_date", null: false
