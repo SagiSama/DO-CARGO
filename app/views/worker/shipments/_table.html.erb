@@ -1,12 +1,19 @@
 <table class="footable table table-stripped toggle-arrow-tiny" data-paging="false">
     <thead>
         <tr>
-            <th data-toggle="true" class="footable-visible footable-first-column footable-sortable">Name<i class="fa fa-fw fa-sort"></i></span></th>
-            <th data-hide="code" class="footable-visible">Code<span class="footable-sort-indicator"></span></th>
-            <th data-hide="all" class="footable-sortable" style="display: none;">Description<span class="footable-sort-indicator"></span></th>
-            <th data-hide="price" class="footable-visible">Price<span class="footable-sort-indicator"></span></th>
-            <th data-hide="phone" class="footable-visible">Status<span class="footable-sort-indicator"></span></th>
+            <th data-toggle="true" class="footable-visible footable-first-column footable-sortable">Code<i class="fa fa-fw fa-sort"></i></span></th>
+            <th data-hide="shipment_definition" class="footable-visible">Name<i class="fa fa-fw fa-sort"></i><span class="footable-sort-indicator"></span></th>
+            <th data-hide="shipment_object_description" class="footable-visible">Ship object<i class="fa fa-fw fa-sort"></i><span class="footable-sort-indicator"></span></th>
+            <th data-hide="all" class="footable-sortable" style="display: none;">Note</th>
+            <th data-hide="all" class="footable-sortable" style="display: none;">About payment</th>
+            <th data-hide="all" class="footable-sortable" style="display: none;">Status history</th>
+            <th data-hide="all" class="footable-sortable" style="display: none;">Delivered date</th>
+            <th data-hide="phone" class="footable-visible">Phone<span class="footable-sort-indicator"><i class="fa fa-fw fa-sort"></i></span></th>
+            <th data-hide="price" class="footable-visible">Price<span class="footable-sort-indicator"><i class="fa fa-fw fa-sort"></i></span></th>
+            <th data-hide="status" class="footable-visible">Status<span class="footable-sort-indicator"><i class="fa fa-fw fa-sort"></i></span></th>
             <th data-hide="delivery_date" class="footable-visible footable-sortable">Delivery date<i class="fa fa-fw fa-sort"></i><span class="footable-sort-indicator"></span></th>
+            <th data-hide="created_at" class="footable-visible footable-sortable">Created date<i class="fa fa-fw fa-sort"></th>
+            <th data-hide="created_worker_id" class="footable-visible footable-sortable">Created person<i class="fa fa-fw fa-sort"></th>
             <th class="text-right footable-visible footable-last-column" data-sort-ignore="true">Action</th>
         </tr>
     </thead>
@@ -15,13 +22,30 @@
         <tr>
             <td>
                 <span class="footable-arrow"><a>›</a></span>
-                <%= shipment.name %>
+                <%= shipment.code %>
             </td>
-            <td><%= shipment.code %></td>
+            <td><%= shipment.shipment_definition %></td>
+            <td><%= shipment.shipment_object_description %></td>
             <td><%= shipment.note %></td>
-            <td>$43.00</td>
-            <td><span class="label label-primary">Enable</span></td>
+            <td><%= shipment.about_payment %></td>
+            <td><%= shipment.status_history %></td>
+            <td><%= shipment.delivered_date %></td>
+            <td><%= shipment.phone %></td>
+            <td><%= shipment.price %></td>
+            <td>
+                <% if shipment.status == 'done' %>
+                    <span class="label label-success"><%= shipment.status %></span>
+                <% elsif shipment.status == 'paid' %>
+                    <span class="label label-primary"><%= shipment.status %></span>
+                <% elsif shipment.status == 'delivering' %>
+                    <span class="label label-info"><%= shipment.status %></span>
+                <% else %>
+                    <span class="label label-warning"><%= shipment.status %></span>
+                <% end %>
+            </td>
             <td><%= shipment.delivery_date %></td>
+            <td><%= shipment.created_at %></td>
+            <td><%= shipment.created_worker.name %></td>
             <td class="text-right">
                 <div class="btn-group">
                     <a href="<%= worker_shipment_path(shipment) %>" class="btn btn-white btn-sm"><i class="fa fa-folder"></i> View </a>

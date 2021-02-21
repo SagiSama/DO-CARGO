@@ -1,10 +1,10 @@
 module Base
 
 class Shipment < ApplicationRecord
-  has_many_attached :images
 
-  validates :name, presence: true
-  validates :delivery_date, presence: true
+  has_many_attached :images
+  belongs_to :created_worker, class_name: 'Base::Worker', foreign_key: :created_worker_id
+  belongs_to :updated_worker, class_name: 'Base::Worker', foreign_key: :updated_worker_id
 
   after_initialize :preview_code
   after_create :set_code

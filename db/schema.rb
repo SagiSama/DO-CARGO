@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_17_134244) do
+ActiveRecord::Schema.define(version: 2021_02_21_090129) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,11 +48,61 @@ ActiveRecord::Schema.define(version: 2021_02_17_134244) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "payments", force: :cascade do |t|
+    t.bigint "shipment_id", null: false
+    t.decimal "amount_paid", null: false
+    t.integer "payment_type", default: 0, comment: "1->belen, 2->dans"
+    t.string "note", default: ""
+    t.bigint "created_worker_id", null: false
+    t.bigint "updated_worker_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "shipment_objects", force: :cascade do |t|
+    t.integer "shipment_id", null: false
+    t.string "name", default: "", null: false
+    t.string "note", default: ""
+    t.integer "height", default: 0
+    t.integer "width", default: 0
+    t.integer "weight", default: 0
+    t.integer "quantity", default: 0, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "shipment_status_histories", force: :cascade do |t|
+    t.integer "shipment_id", null: false
+    t.integer "status", default: 0, null: false, comment: "0->burgtesen, 1->zamd ywaa, 2->tulbur tologdson, 3->hurgegdsen"
+    t.bigint "created_worker_id", null: false
+    t.bigint "updated_worker_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "shipments", force: :cascade do |t|
     t.string "code", default: ""
-    t.string "name", default: ""
+    t.string "shipment_definition", default: "", null: false
+    t.string "shipment_object_description", default: "", null: false
+    t.string "about_payment", default: "", null: false
     t.string "note", default: ""
     t.datetime "delivery_date", null: false
+    t.string "phone", default: "", null: false
+    t.string "customer_phone", default: ""
+    t.string "recipient_phone", default: ""
+    t.string "email", default: ""
+    t.string "customer_name", default: ""
+    t.string "recipient_name", default: ""
+    t.string "location_from", default: ""
+    t.string "location_to", default: ""
+    t.integer "status", default: 0, null: false, comment: "0->burgtesen, 1->zamd ywaa, 2->tulbur tologdson, 3->duussan"
+    t.string "status_history", default: "", comment: "burgtesen, zamd ywaa, tulbur tologdson, duussan"
+    t.datetime "delivered_date"
+    t.decimal "price", default: "0.0", null: false
+    t.bigint "created_worker_id", null: false
+    t.bigint "updated_worker_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "workers", force: :cascade do |t|
