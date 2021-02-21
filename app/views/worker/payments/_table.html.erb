@@ -26,7 +26,7 @@
             <td><%= payment.created_worker.name %></td>
             <td class="text-right">
                 <div class="btn-group">
-                    <a href="<%= worker_shipment_path(payment.shipment) %>" class="btn btn-white btn-sm"><i class="fa fa-folder"></i> View </a>
+                    <a href="<%= worker_shipment_path(payment.shipment) %>" class="btn btn-white btn-sm"><i class="fa fa-folder"></i> Detail </a>
                     <a href="<%= edit_worker_payment_path(payment) %>" class="btn btn-white btn-sm"><i class="fa fa-pencil"></i> Edit </a>
                     <%= link_to 'Delete', worker_payment_path(payment), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-white btn btn-xs btn-danger btn-outline" %>
                 </div>

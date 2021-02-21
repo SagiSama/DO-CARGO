@@ -8,14 +8,20 @@
                     <%= image_tag 'profile_empty.jpg', size: "128", alt: "image", class: "rounded-circle" %>
                 <% end %>
                 <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                    <span class="block m-t-xs font-bold">David Williams</span>
+                    <span class="block m-t-xs font-bold"><%= current_worker.name %></span>
                     <span class="text-muted text-xs block">Art Director <b class="caret"></b></span>
                 </a>
                 <ul class="dropdown-menu animated fadeInRight m-t-xs">
                     <li><a class="dropdown-item" href="<%= worker_profile_path %>">Profile</a></li>
-                    <li><a class="dropdown-item" href="contacts.html">Contacts</a></li>
+                    <li><a class="dropdown-item" href="<%= worker_dashboards_path %>">Contacts</a></li>
                     <li class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="login.html">Logout</a></li>
+                    <li>
+                        <a class="dropdown-item" href="login.html">
+                            <%= link_to destroy_worker_session_path, method: :delete do %>
+                            <i class="fa fa-sign-out"></i>Log out
+                            <% end %>
+                        </a>
+                    </li>
                 </ul>
             </div>
             <div class="logo-element">
@@ -33,10 +39,13 @@
             <a href="<%= worker_dashboards_path %>"><i class="fa fa-pie-chart"></i> <span class="nav-label">Dashboard</span></a>
         </li>
         <li>
-            <a href="<%= worker_profile_path %>"><i class="fa fa-pie-chart"></i> <span class="nav-label">Profile</span></a>
+            <a href="<%= worker_profile_path %>"><i class="fa fa-user"></i> <span class="nav-label">Profile</span></a>
         </li>
         <li>
             <a href="<%= worker_shipments_path %>" aria-expanded="false"><i class="fa fa-shopping-cart"></i><span class="nav-label">Shipments</span></a>
+        </li>
+        <li>
+            <a href="<%= worker_payments_path %>" aria-expanded="false"><i class="fa fa-dollar"></i><span class="nav-label">Paymens</span></a>
         </li>
     </ul>
 </div>

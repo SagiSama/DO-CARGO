@@ -13,7 +13,6 @@
             <th data-hide="status" class="footable-visible">Status<span class="footable-sort-indicator"><i class="fa fa-fw fa-sort"></i></span></th>
             <th data-hide="delivery_date" class="footable-visible footable-sortable">Delivery date<i class="fa fa-fw fa-sort"></i><span class="footable-sort-indicator"></span></th>
             <th data-hide="created_at" class="footable-visible footable-sortable">Created date<i class="fa fa-fw fa-sort"></th>
-            <th data-hide="created_worker_id" class="footable-visible footable-sortable">Created person<i class="fa fa-fw fa-sort"></th>
             <th class="text-right footable-visible footable-last-column" data-sort-ignore="true">Action</th>
         </tr>
     </thead>
@@ -22,15 +21,24 @@
         <tr>
             <td>
                 <span class="footable-arrow"><a>›</a></span>
-                <%= shipment.code %>
+                <a href="<%= worker_shipment_path(shipment) %>"><%= shipment.code %></a>
+                <% if shipment.images.attached? %>
+                <% shipment.images.each do |image| %>
+                <%= image_tag(url_for(image), alt: 'image', size: "20", class: "rounded-circle") %>
+                <% end %>
+                <% end %>
             </td>
-            <td><%= shipment.shipment_definition %></td>
+            <td>
+                <%= shipment.shipment_definition %>
+            </td>
             <td><%= shipment.shipment_object_description %></td>
             <td><%= shipment.note %></td>
             <td><%= shipment.about_payment %></td>
             <td><%= shipment.status_history %></td>
             <td><%= shipment.delivered_date %></td>
-            <td><%= shipment.phone %></td>
+            <td>
+                <%= shipment.phone %>
+            </td>
             <td><%= shipment.price %></td>
             <td>
                 <% if shipment.status == 'done' %>
@@ -43,12 +51,17 @@
                     <span class="label label-warning"><%= shipment.status %></span>
                 <% end %>
             </td>
-            <td><%= shipment.delivery_date %></td>
-            <td><%= shipment.created_at %></td>
-            <td><%= shipment.created_worker.name %></td>
+            <td>
+                <small><%= shipment.delivery_date %></small>
+            </td>
+            <td>
+                <small><%= shipment.created_worker.name %></small>
+                <br>
+                <small><%= shipment.created_at %></small>
+            </td>
             <td class="text-right">
                 <div class="btn-group">
-                    <a href="<%= worker_shipment_path(shipment) %>" class="btn btn-white btn-sm"><i class="fa fa-folder"></i> View </a>
+                    <a href="<%= worker_shipment_path(shipment) %>" class="btn btn-white btn-sm"><i class="fa fa-folder"></i> Detail </a>
                     <a href="<%= edit_worker_shipment_path(shipment) %>" class="btn btn-white btn-sm"><i class="fa fa-pencil"></i> Edit </a>
                     <%= link_to 'Delete', worker_shipment_path(shipment), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-white btn btn-xs btn-danger btn-outline" %>
                 </div>
