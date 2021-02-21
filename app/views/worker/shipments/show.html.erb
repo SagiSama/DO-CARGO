@@ -15,70 +15,100 @@
 <div class="wrapper wrapper-content animated fadeInUp">
     <div class="row">
         <div class="col-lg-12">
-            <div class="tabs-container">
-                <ul class="nav nav-tabs">
-                    <li><a class="nav-link active" data-toggle="tab" href="#tab-1"> Product info</a></li>
-                    <li><a class="nav-link" data-toggle="tab" href="#tab-2"> Images</a></li>
-                </ul>
-                <div class="tab-content">
-                    <div id="tab-1" class="tab-pane active">
-                        <div class="panel-body">
-                            <fieldset>
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Code:</label>
-                                    <div class="col-sm-10">
-                                        <%= @shipment.code %>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Name:</label>
-                                    <div class="col-sm-10">
-                                        <%= @shipment.name %>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Price:</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" placeholder="price">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Note:</label>
-                                    <div class="col-sm-10">
-                                        <%= @shipment.note %>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Note:</label>
-                                    <div class="col-sm-10">
-                                        <%= @shipment.delivery_date %>
-                                    </div>
-                                </div>
-                            </fieldset>
-                        </div>
-                    </div>
-                    <div id="tab-2" class="tab-pane">
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-stripped">
-                                    <thead>
-                                    <tr><th>Uploaded images</th></tr>
-                                    </thead>
-                                    <tbody>
-                                        <% if @shipment.images.attached? %>
-                                            <tr>
-                                                <td>
-                                                    <% @shipment.images.each do |image| %>
-                                                    <%= image_tag(url_for(image), disabled: true, class: "img-preview img-preview-sm") %>
-                                                    <% end %>
-                                                </td>
-                                            </tr>
+            <div class="ibox product-detail">
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+                                <% if @shipment.images.attached? %>
+                                    <div class="carousel-inner">
+                                        <% i = 0 %>
+                                        <% @shipment.images.each do |image| %>
+                                            <% if i == 0 %>
+                                                <% active = "active" %>
+                                            <% else %>
+                                                <% active = "" %>
+                                            <% end %>
+                                            <div class="carousel-item <%= active %>">
+                                                <%= image_tag(url_for(image)) %>
+                                            </div>
+                                            <% i = i + 1 %>
                                         <% end %>
-                                    </tbody>
-                                </table>
+                                    </div>
+                                <% end %>
+                                <a class="slick-prev slick-arrow" href="#carouselExampleInterval" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"><<<</span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="slick-next slick-arrow" href="#carouselExampleInterval" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true">>>></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                                <% if @shipment.images.attached? %>
+                                    <% i = 0 %>
+                                    <ol class="carousel-indicators">
+                                        <% @shipment.images.each do |image| %>
+                                            <% if i == 0 %>
+                                            <% active = "active" %>
+                                            <% end %>
+                                            <li data-target="#carouselExampleIndicators" data-slide-to="<%= i %>" class="<%= active %>"</li>
+                                        <% i = i + 1 %>
+                                        <% end %>
+                                    </ol>
+                                <% end %>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <h2 class="font-bold m-b-xs">
+                                <%= @shipment.code %> Shipment detail
+                            </h2>
+                            <span class="badge badge-info"><%= @shipment.status %></span><br>
+                            <small><%= @shipment.shipment_definition %>.</small>
+                            <div class="m-t-md">
+                                <h2 class="product-main-price">$<%= @shipment.price %> <small class="text-muted"><%= @shipment.about_payment %></small> </h2>
+                            </div>
+                            <hr>
+                            <h4>Shipment object description</h4>
+                            <div class="small text-muted">
+                                <%= @shipment.shipment_object_description %>
+                                <br>
+                                <br>
+                                <%= @shipment.note %>.
+                            </div>
+                            <dl class="small m-t-md">
+                                <dt>Description lists</dt>
+                                <dd>Delivery date: <%= @shipment.delivery_date %></dd>
+                                <dd>Phone: <%= @shipment.phone %></dd>
+                                <dd>Status history: <b><%= @shipment.status_history %></b></dd>
+                                <dd>Delivered date: <b><%= @shipment.delivered_date %></b></dd>
+                                <dd>Created person: <b><%= @shipment.created_worker.name %></b></dd>
+                                <dd>Updated person: <b><%= @shipment.updated_worker.name %></b></dd>
+                                <dd>Created at: <b><%= @shipment.created_at %></b></dd>
+                                <dd>Updated at: <b><%= @shipment.updated_at %></b></dd>
+                                <dd>Customer phone: <b><%= @shipment.customer_phone %></b></dd>
+                                <dd>Recipient phone: <b><%= @shipment.recipient_phone %></b></dd>
+                                <dd>Email: <b><%= @shipment.email %></b></dd>
+                                <dd>Customer name: <b><%= @shipment.customer_name %></b></dd>
+                                <dd>Recipient name: <b><%= @shipment.recipient_name %></b></dd>
+                                <dd>Location from: <b><%= @shipment.location_from %></b></dd>
+                                <dd>Location to: <b><%= @shipment.location_to %></b></dd>
+                            </dl>
+                            <hr>
+                            <div>
+                                <div class="btn-group">
+                                    <button class="btn btn-primary btn-sm"><i class="fa fa-cart-plus"></i> Add to cart</button>
+                                    <button class="btn btn-white btn-sm"><i class="fa fa-star"></i> Add to wishlist </button>
+                                    <button class="btn btn-white btn-sm"><i class="fa fa-envelope"></i> Contact with author </button>
+                                </div>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="ibox-footer">
+                            <span class="float-right">
+                                Full shipment - <i class="fa fa-clock-o"></i> <%= Time.now %>
+                            </span>
+                    shipment footer
                 </div>
             </div>
         </div>

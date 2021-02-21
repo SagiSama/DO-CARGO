@@ -2,8 +2,9 @@
     <div class="col-lg-12">
         <div class="tabs-container">
             <ul class="nav nav-tabs">
-                <li><a class="nav-link active" data-toggle="tab" href="#tab-1"> Product info</a></li>
-                <li><a class="nav-link" data-toggle="tab" href="#tab-2"> Images</a></li>
+                <li><a class="nav-link active" data-toggle="tab" href="#tab-1"> Shipment info</a></li>
+                <li><a class="nav-link" data-toggle="tab" href="#tab-2"> Extra</a></li>
+                <li><a class="nav-link" data-toggle="tab" href="#tab-3"> Images</a></li>
             </ul>
             <%= form_for @shipment do |f| %>
                 <div class="tab-content">
@@ -17,21 +18,45 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Name:</label>
-                                    <div class="col-sm-10">
-                                        <%= f.text_field :name, placeholder: "yu shipment hiij bga eseh? tailbar", class: "form-control" %>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Price:</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" placeholder="">
+                                        <%= f.number_field :price, placeholder: "price", class: "form-control" %>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Note:</label>
+                                    <label class="col-sm-2 col-form-label">Status:</label>
                                     <div class="col-sm-10">
-                                        <%= f.text_area :note, placeholder: "Shipment description", class: "form-control" %>
+                                        <%= f.select(:status, ['registered', 'delivering', 'paid', 'done'], {}, { :class => 'form-control' }) %>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Definition:</label>
+                                    <div class="col-sm-10">
+                                        <%= f.text_field :shipment_definition, placeholder: "shipment definition or name", class: "form-control" %>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Object description:</label>
+                                    <div class="col-sm-10">
+                                        <%= f.text_field :shipment_object_description, placeholder: "shipping object description", class: "form-control" %>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">About payment:</label>
+                                    <div class="col-sm-10">
+                                        <%= f.text_field :about_payment, placeholder: "explanation about payment", class: "form-control" %>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Phone:</label>
+                                    <div class="col-sm-10">
+                                        <%= f.text_field :phone, placeholder: "phone", class: "form-control" %>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Contact email:</label>
+                                    <div class="col-sm-10">
+                                        <%= f.text_field :email, placeholder: "contact email", class: "form-control" %>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -40,10 +65,64 @@
                                         <%= f.date_field :delivery_date, placeholder: "Delivery date", class: "form-control" %>
                                     </div>
                                 </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Note:</label>
+                                    <div class="col-sm-10">
+                                        <%= f.text_area :note, placeholder: "Shipment description", class: "form-control" %>
+                                    </div>
+                                </div>
                             </fieldset>
                         </div>
                     </div>
                     <div id="tab-2" class="tab-pane">
+                        <div class="panel-body">
+                            <fieldset>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Delivered date:</label>
+                                    <div class="col-sm-10">
+                                        <%= f.date_field :delivered_date, placeholder: "delivered date", class: "form-control" %>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Customer name:</label>
+                                    <div class="col-sm-10">
+                                        <%= f.text_field :customer_name, placeholder: "customer name", class: "form-control" %>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Customer phone:</label>
+                                    <div class="col-sm-10">
+                                        <%= f.text_field :customer_phone, placeholder: "customer phone", class: "form-control" %>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Recipient name:</label>
+                                    <div class="col-sm-10">
+                                        <%= f.text_field :recipient_name, placeholder: "recipient name", class: "form-control" %>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Recipient phone:</label>
+                                    <div class="col-sm-10">
+                                        <%= f.text_field :recipient_phone, placeholder: "Recipient phone", class: "form-control" %>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Location from:</label>
+                                    <div class="col-sm-10">
+                                        <%= f.text_field :location_from, placeholder: "destination location", class: "form-control" %>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Location to:</label>
+                                    <div class="col-sm-10">
+                                        <%= f.text_field :location_to, placeholder: "delivery location", class: "form-control" %>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div id="tab-3" class="tab-pane">
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered table-stripped">

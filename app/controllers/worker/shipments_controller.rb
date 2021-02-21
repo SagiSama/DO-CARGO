@@ -15,7 +15,10 @@ class ShipmentsController < ApplicationController
   end
 
   def create
-    @shipment = Shipment.new(shipment_params)
+    create_params = shipment_params.merge(status_history: params[:worker_shipment][:status])
+                                   .merge(created_worker_id: current_worker.id)
+                                   .merge(updated_worker_id: current_worker.id)
+    @shipment = Shipment.new(create_params)
     if @shipment.save
       flash[:success] = t('global.save_success', subject: 'shipment')
       redirect_to worker_shipments_path
@@ -29,7 +32,11 @@ class ShipmentsController < ApplicationController
   end
 
   def update
-    if @shipment.update(shipment_params)
+    update_params = shipment_params.merge(updated_worker_id: current_worker.id)
+    if @shipment.status != params[:worker_shipment][:status]
+      update_params = shipment_params.merge(status_history: "#{@shipment.status_history}, #{params[:worker_shipment][:status]}")
+    end
+    if @shipment.update(update_params)
       flash[:success] = t('global.save_success', subject: 'shipment')
       redirect_to worker_shipments_path
     else
@@ -51,7 +58,23 @@ class ShipmentsController < ApplicationController
   end
 
   def shipment_params
-    params.require(:worker_shipment).permit(:name, :note, :delivery_date, images: [])
+    params.require(:worker_shipment).permit(:shipment_definition,
+                                            :shipment_object_description,
+                                            :about_payment,
+                                            :price,
+                                            :note,
+                                            :delivery_date,
+                                            :phone,
+                                            :status,
+                                            :customer_phone,
+                                            :recipient_phone,
+                                            :email,
+                                            :customer_name,
+                                            :recipient_name,
+                                            :location_from,
+                                            :location_to,
+                                            :delivered_date,
+                                            images: [])
   end
 end
 
