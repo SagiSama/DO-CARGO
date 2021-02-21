@@ -17,5 +17,6 @@ Rails.application.routes.draw do
     resources :dashboards, only: :index
     resource :profile, except: %i[new create destroy]
     resources :shipments
+    resources :payments, except: :show
   end
 end

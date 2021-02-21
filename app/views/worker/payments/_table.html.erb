@@ -1,0 +1,54 @@
+<table class="footable table table-stripped toggle-arrow-tiny" data-paging="false">
+    <thead>
+        <tr>
+            <th data-toggle="true" class="footable-visible footable-first-column footable-sortable">Paid amount<i class="fa fa-fw fa-sort"></i></span></th>
+            <th data-hide="shipment_code" class="footable-visible">Shipment code<i class="fa fa-fw fa-sort"></i><span class="footable-sort-indicator"></span></th>
+            <th data-hide="payment_type" class="footable-visible">Type<i class="fa fa-fw fa-sort"></i><span class="footable-sort-indicator"></span></th>
+            <th data-hide="all" class="footable-sortable"><b>Note</b></th>
+            <th data-hide="all" class="footable-sortable">About shipment</th>
+            <th data-hide="created_at" class="footable-visible footable-sortable">Created date<i class="fa fa-fw fa-sort"></th>
+            <th data-hide="created_worker_id" class="footable-visible footable-sortable">Created person<i class="fa fa-fw fa-sort"></th>
+            <th class="text-right footable-visible footable-last-column" data-sort-ignore="true">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @payments.each do |payment| %>
+        <tr>
+            <td>
+                <span class="footable-arrow"><a>›</a></span>
+                <%= payment.amount_paid %>
+            </td>
+            <td><%= payment.shipment.code %></td>
+            <td><%= payment.payment_type %></td>
+            <td><%= payment.note %></td>
+            <td><%= payment.shipment.shipment_definition %></td>
+            <td><%= payment.created_at %></td>
+            <td><%= payment.created_worker.name %></td>
+            <td class="text-right">
+                <div class="btn-group">
+                    <a href="<%= worker_shipment_path(payment.shipment) %>" class="btn btn-white btn-sm"><i class="fa fa-folder"></i> View </a>
+                    <a href="<%= edit_worker_payment_path(payment) %>" class="btn btn-white btn-sm"><i class="fa fa-pencil"></i> Edit </a>
+                    <%= link_to 'Delete', worker_payment_path(payment), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-white btn btn-xs btn-danger btn-outline" %>
+                </div>
+            </td>
+        </tr>
+        <% end%>
+    </tbody>
+    <tfoot>
+        <td colspan="6">
+            <ul class="float-right" id="paginator">
+                <%= paginate @payments, remote: true %>
+            </ul>
+            <ul>
+                count: <%= @payments.total_count %>
+                limit: <%= @payments.limit_value %>
+            </ul>
+        </td>
+    </tfoot>
+</table>
+
+<script>
+    $(document).ready(function() {
+        $('.footable').footable({ paginate: false });
+    });
+</script>
