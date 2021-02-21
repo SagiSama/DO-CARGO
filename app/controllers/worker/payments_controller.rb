@@ -13,7 +13,7 @@ class PaymentsController < ApplicationController
 
   def create
     create_params = payment_params.merge(created_worker_id: current_worker.id)
-                                   .merge(updated_worker_id: current_worker.id)
+                                  .merge(updated_worker_id: current_worker.id)
     @payment = Payment.new(create_params)
     if @payment.save
       flash[:success] = t('global.save_success', subject: 'payment')
