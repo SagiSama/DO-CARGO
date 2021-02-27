@@ -32,10 +32,8 @@ class ShipmentsController < ApplicationController
   end
 
   def update
-    update_params = shipment_params.merge(updated_worker_id: current_worker.id)
-    if @shipment.status != params[:worker_shipment][:status]
-      update_params = shipment_params.merge(status_history: "#{@shipment.status_history}, #{params[:worker_shipment][:status]}")
-    end
+    update_params = shipment_params.except(:status)
+                                   .merge(updated_worker_id: current_worker.id)
     if @shipment.update(update_params)
       flash[:success] = t('global.save_success', subject: 'shipment')
       redirect_to worker_shipments_path
@@ -49,6 +47,15 @@ class ShipmentsController < ApplicationController
     @shipment.destroy
     flash[:success] = t('global.save_success', subject: 'shipment')
     redirect_to worker_shipments_path
+  end
+
+  def state_shipment
+    @shipment = Shipment.find_by(id: params[:shipment_id])
+    if @shipment.update({status: params[:status], status_history: "#{@shipment.status_history}, #{params[:status]}"})
+      flash[:success] = t('global.save_success', subject: 'shipment')
+    else
+      flash[:failure] = t('global.save_failure', subject: 'shipment')
+    end
   end
 
   private

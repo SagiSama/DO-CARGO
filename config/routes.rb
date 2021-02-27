@@ -16,7 +16,15 @@ Rails.application.routes.draw do
     root 'dashboards#index'
     resources :dashboards, only: :index
     resource :profile, except: %i[new create destroy]
-    resources :shipments
-    resources :payments, except: :show
+    resources :shipments do
+      collection do
+        post 'state_shipment'
+      end
+    end
+    resources :payments, except: :show do
+      collection do
+        post 'shipment_payment'
+      end
+    end
   end
 end

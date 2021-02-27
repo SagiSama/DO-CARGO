@@ -44,6 +44,21 @@ class PaymentsController < ApplicationController
     redirect_to worker_payments_path
   end
 
+  def shipment_payment
+    create_params = payment_params.merge(created_worker_id: current_worker.id)
+                                  .merge(updated_worker_id: current_worker.id)
+    @payment = Payment.new(create_params)
+    if @payment.save
+      flash[:success] = t('global.save_success', subject: 'payment')
+      redirect_to worker_shipment_path(@payment)
+    else
+      flash[:failure] = t('global.save_failure', subject: 'payment')
+      @shipment = Shipment.find_by(id: create_params[:shipment_id])
+      render 'worker/shipments/show'
+#       redirect_to worker_shipment_path(create_params[:shipment_id])
+    end
+  end
+
   private
 
   def target_payment
