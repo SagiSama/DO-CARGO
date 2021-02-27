@@ -80,7 +80,6 @@
     </a>
 </div>
 
-
 <section id="features" class="container services">
     <div class="row">
         <div class="col-sm-4">
@@ -100,6 +99,15 @@
                 <%= render partial: 'track_shipment_info' %>
             </div>
         </div>
+    </div>
+    <div class="row">
+        <% @news.each do |n| %>
+            <%= n.title %>
+            <%= n.subject %>
+            <% if n.image.attached? %>
+            <%= image_tag(url_for(n.image), size: '300') %>
+            <% end %>
+        <% end %>
     </div>
     <div class="row">
         <div class="col-sm-3">
