@@ -28,3 +28,6 @@ Worker::Shipment.create([{ code: 'SK0001', shipment_definition: 'utas hurgelt sa
 Worker::Payment.create([{ shipment_id: Worker::Shipment.first.id, amount_paid: 15000, payment_type: 1, note: 'dansaar tulsun',
                           created_worker_id: Worker::Worker.first.id, updated_worker_id: Worker::Worker.first.id, created_at: DateTime.now, updated_at: DateTime.now }])
 
+Admin::Post.create([{ title: 'post1', subject: 'subject', note: 'note', status: true },
+                    { title: 'post2', subject: 'subject', note: 'note', status: true },
+                    { title: 'post3', subject: 'subject', note: 'note', status: false }])
