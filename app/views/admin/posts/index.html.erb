@@ -48,7 +48,7 @@
                       <% if post.status %>
                         <span class="label label-primary">Active</span>
                       <% else %>
-                        <span class="label label-danger">Inactive</span>
+                        <span class="label label-danger">Passive</span>
                       <% end %>
                     </td>
                     <td class="project-title">
@@ -57,7 +57,7 @@
                       <small><%= post.subject %></small>
                     </td>
                     <td class="project-completion">
-                      <small>Completion with: 48%</small>
+                      <span class="border border-info"><small><%= post.post_type %></small></span>
                       <div class="progress progress-mini">
                         <div style="width: 48%;" class="progress-bar"></div>
                       </div>
