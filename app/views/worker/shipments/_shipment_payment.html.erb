@@ -1,0 +1,37 @@
+<h2 class="font-bold m-b-xs">
+    Payment detail <small>total: </small><%= @payments.count %>
+</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Data</th>
+            <th>Paid amount</th>
+            <th>Type</th>
+            <th>Note</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @payments.each do |payment| %>
+            <tr>
+                <td>
+                    <span class="pie" style="display: none;"><%= payment.amount_paid %></span>
+                    <svg class="peity" height="16" width="16">
+                        <path d="M 8 8 L 8 0 A 8 8 0 0 1 14.933563796318165 11.990700825968545 Z" fill="#1ab394"></path>
+                        <path d="M 8 8 L 14.933563796318165 11.990700825968545 A 8 8 0 1 1 7.999999999999998 0 Z" fill="#d7d7d7"></path>
+                    </svg>
+                </td>
+                <% if payment.amount_paid > 0 %>
+                    <td class="text-navy">
+                        <i class="fa fa-level-up"></i> <%= payment.amount_paid %>
+                    </td>
+                <% else %>
+                    <td class="text-warning">
+                        <i class="fa fa-level-down"></i> <%= payment.amount_paid %>
+                    </td>
+                <% end %>
+                <td><%= payment.payment_type %></td>
+                <td><%= payment.note %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>

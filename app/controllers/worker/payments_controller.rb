@@ -49,14 +49,14 @@ class PaymentsController < ApplicationController
                                   .merge(updated_worker_id: current_worker.id)
     @payment = Payment.new(create_params)
     if @payment.save
+      flash[:failure] = nil
       flash[:success] = t('global.save_success', subject: 'payment')
-      redirect_to worker_shipment_path(@payment)
     else
+      flash[:success] = nil
       flash[:failure] = t('global.save_failure', subject: 'payment')
-      @shipment = Shipment.find_by(id: create_params[:shipment_id])
-      render 'worker/shipments/show'
-#       redirect_to worker_shipment_path(create_params[:shipment_id])
     end
+    @payments = Payment.where(shipment_id: payment_params[:shipment_id]).order('created_at desc')
+    render 'worker/shipments/shipment_payment'
   end
 
   private

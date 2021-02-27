@@ -8,6 +8,7 @@ class ShipmentsController < ApplicationController
   end
 
   def show
+    @payments = Payment.where(shipment_id: @shipment.id).order('created_at desc')
   end
 
   def new
