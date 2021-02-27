@@ -1,0 +1,12 @@
+$('#flash_containner').html("<%= j render 'layouts/shared/flash' %>")
+
+<% if @payment.errors.any? %>
+    <% @payment.errors.messages.each do |key, value| %>
+        $('#shipment_payment_form #worker_payment_<%= key %>').addClass('error')
+        $('#shipment_payment_form #worker_payment_<%= key %>').parent().append('<label class="error"><%= value.join(', ') %></label>')
+    <% end %>
+<% else %>
+    $("#shipment_payment_form .form-control").removeClass('error')
+    $('#shipment_payment_form label.error').remove();
+    $('#shipment_payments').html("<%= j render 'shipment_payment' %>")
+<% end %>

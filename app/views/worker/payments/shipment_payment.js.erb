@@ -8,5 +8,5 @@ $('#flash_containner').html("<%= j render 'layouts/shared/flash' %>")
 <% else %>
     $("#shipment_payment_form .form-control").removeClass('error')
     $('#shipment_payment_form label.error').remove();
-    $('#shipment_payments').html("<%= j render 'worker/shipments/shipment_payment' %>")
+    $('#shipment_payments').html("<%= j render 'shipment_payment' %>")
 <% end %>

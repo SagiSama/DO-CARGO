@@ -56,7 +56,12 @@ class PaymentsController < ApplicationController
       flash[:failure] = t('global.save_failure', subject: 'payment')
     end
     @payments = Payment.where(shipment_id: payment_params[:shipment_id]).order('created_at desc')
-    render 'worker/shipments/shipment_payment'
+  end
+
+  def shipment_payment_delete
+    @payment.destroy
+    flash[:success] = t('global.save_success', subject: 'payment')
+    @payments = Payment.where(shipment_id: @payment.shipment_id).order('created_at desc')
   end
 
   private

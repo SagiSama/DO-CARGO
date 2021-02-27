@@ -2,7 +2,6 @@ $('#flash_containner').html("<%= j render 'layouts/shared/flash' %>")
 
 <% if @shipment.errors.any? %>
     <% @shipment.errors.messages.each do |key, value| %>
-        alert('<%= "#{key}#{value}" %>')
         $('#state_shipment_form #<%= key %>').addClass('error')
         $('#state_shipment_form #<%= key %>').parent().append('<label class="error"><%= value.join(', ') %></label>')
     <% end %>

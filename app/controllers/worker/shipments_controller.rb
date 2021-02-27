@@ -53,8 +53,10 @@ class ShipmentsController < ApplicationController
   def state_shipment
     @shipment = Shipment.find_by(id: params[:shipment_id])
     if @shipment.update({status: params[:status], status_history: "#{@shipment.status_history}, #{params[:status]}"})
+      flash[:failure] = nil
       flash[:success] = t('global.save_success', subject: 'shipment')
     else
+      flash[:success] = nil
       flash[:failure] = t('global.save_failure', subject: 'shipment')
     end
   end

@@ -25,6 +25,9 @@ Rails.application.routes.draw do
       collection do
         post 'shipment_payment'
       end
+      member do
+        delete :shipment_payment_delete
+      end
     end
   end
 end
