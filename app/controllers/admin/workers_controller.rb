@@ -44,7 +44,7 @@ class WorkersController < ApplicationController
   private
 
   def worker_params
-    params.require(:admin_worker).permit(:name, :email)
+    params.require(:admin_worker).permit(:name, :email, :password)
   end
 
   def target_worker
