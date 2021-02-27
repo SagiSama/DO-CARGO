@@ -62,8 +62,9 @@ ActiveRecord::Schema.define(version: 2021_02_27_091636) do
   create_table "posts", force: :cascade do |t|
     t.string "title", default: ""
     t.string "subject", default: ""
-    t.string "note", default: ""
+    t.text "note", default: ""
     t.boolean "status", default: false
+    t.integer "post_type", default: 0, comment: "0 -> top slider, 1 -> news, 2 -> team"
   end
 
   create_table "shipment_objects", force: :cascade do |t|
