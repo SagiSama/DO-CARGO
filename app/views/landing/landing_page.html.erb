@@ -83,9 +83,23 @@
 
 <section id="features" class="container services">
     <div class="row">
-        <a class="btn btn-white set_es" href="<%= root_path(locale: :mn) %>"><%= image_tag "flags/16/Mongolia.png" %> MN</a>
-        <a class="btn btn-white set_es" href="<%= root_path(locale: :kr) %>"><%= image_tag "flags/16/North-Korea.png" %> KR</a>
-        <div class="col-sm-3"><h3><%= t 'hello' %></h3></div>
+        <div class="col-sm-4">
+            <a class="btn btn-white set_es" href="<%= root_path(locale: :mn) %>"><%= image_tag "flags/16/Mongolia.png" %> MN</a>
+            <a class="btn btn-white set_es" href="<%= root_path(locale: :kr) %>"><%= image_tag "flags/16/North-Korea.png" %> KR</a>
+            <div class="col-sm-3"><h3><%= t 'hello' %></h3></div>
+        </div>
+        <div class="col-sm-4">
+            <h1>Track your shipment</h1>
+            <div id="track_shipment">
+                <%= render partial: 'track_shipment' %>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <h1>Shipment Information</h1>
+            <div id="track_shipment_info">
+                <%= render partial: 'track_shipment_info' %>
+            </div>
+        </div>
     </div>
     <div class="row">
         <div class="col-sm-3">

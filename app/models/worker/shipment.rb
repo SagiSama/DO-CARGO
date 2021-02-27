@@ -9,8 +9,6 @@ class Shipment < Base::Shipment
   validates :phone, presence: true
   validates :status, presence: true
 
-  enum status: [ :registered, :delivering, :paid, :done ]
-
   def self.search(params)
     result = Shipment.select('*')
 

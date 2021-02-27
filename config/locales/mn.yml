@@ -2,6 +2,7 @@ mn:
   hello: "Сайнуу"
   workers_count: "Ажилчдын тоо"
   shipments_count: "Хүрэлтийн тоо"
+  exuce_user_no_information_found_call_us: 'Уучлаарай таны хайсан хүргэлт олдсонгүй та бидэнтэй холбогдон асууна уу :('
   global:
     save_success: '%{subject} амжилттай хадгалагдлаа'
     save_failure: '%{subject} хадгалах үйлдэл амжилтгүй !'

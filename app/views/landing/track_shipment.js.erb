@@ -1,0 +1,5 @@
+<% if @shipment %>
+  $('#track_shipment_info').html("<%= j render 'track_shipment_info' %>")
+<% else %>
+  $('#track_shipment_info').html("<h3><%= t 'exuce_user_no_information_found_call_us' %></h3>")
+<% end %>
