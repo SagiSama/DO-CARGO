@@ -1,2 +1,13 @@
-$('#state_shipment').html("<%= j render 'state_shipment' %>")
 $('#flash_containner').html("<%= j render 'layouts/shared/flash' %>")
+
+<% if @shipment.errors.any? %>
+    <% @shipment.errors.messages.each do |key, value| %>
+        alert('<%= "#{key}#{value}" %>')
+        $('#state_shipment_form #<%= key %>').addClass('error')
+        $('#state_shipment_form #<%= key %>').parent().append('<label class="error"><%= value.join(', ') %></label>')
+    <% end %>
+<% else %>
+    $("#state_shipment_form .form-control").removeClass('error')
+    $('#state_shipment_form label.error').remove();
+    $('#state_shipment').html("<%= j render 'state_shipment' %>")
+<% end %>

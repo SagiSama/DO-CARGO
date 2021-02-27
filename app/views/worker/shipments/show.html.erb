@@ -116,7 +116,7 @@
                         </div>
                         <div class="col-md-6">
                             <hr>
-                            <div>
+                            <div id="state_shipment_form">
                                 <%= form_with url: state_shipment_worker_shipments_path do |f| %>
                                 <%= f.hidden_field :shipment_id, value: @shipment.id, class: "form-control" %>
                                 <div class="form-group row">
