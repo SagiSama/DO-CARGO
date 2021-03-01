@@ -28,23 +28,16 @@
                 IN+
             </div>
         </li>
-        <li>
-            <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span> <span class="fa arrow"></span></a>
-            <ul class="nav nav-second-level collapse">
-                <li><a href="<%= worker_dashboards_path %>">Dashboard v.1</a></li>
-                <li><a href="<%= worker_dashboards_path %>">Dashboard v.2</a></li>
-            </ul>
-        </li>
-        <li>
+        <li class="<%= 'active' if @dashboard %>">
             <a href="<%= worker_dashboards_path %>"><i class="fa fa-pie-chart"></i> <span class="nav-label">Dashboard</span></a>
         </li>
-        <li>
+        <li class="<%= 'active' if @profile %>">
             <a href="<%= worker_profile_path %>"><i class="fa fa-user"></i> <span class="nav-label">Profile</span></a>
         </li>
-        <li>
+        <li class="<%= 'active' if @shipments %>">
             <a href="<%= worker_shipments_path %>" aria-expanded="false"><i class="fa fa-shopping-cart"></i><span class="nav-label">Shipments</span></a>
         </li>
-        <li>
+        <li class="<%= 'active' if @payments %>">
             <a href="<%= worker_payments_path %>" aria-expanded="false"><i class="fa fa-dollar"></i><span class="nav-label">Paymens</span></a>
         </li>
     </ul>

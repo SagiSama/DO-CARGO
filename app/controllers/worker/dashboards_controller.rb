@@ -4,7 +4,8 @@ class DashboardsController < ApplicationController
 
   def index
     p '________INDEXX___ADMIN_DASHBOARD___________'
-    @shipments = Shipment.all
+    @dashboard = {shipments: nil}
+    @dashboard[:shipments] = Shipment.all
   end
 end
 

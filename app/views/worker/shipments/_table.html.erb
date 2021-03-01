@@ -20,13 +20,7 @@
         <% @shipments.each do |shipment| %>
         <tr>
             <td>
-                <span class="footable-arrow"><a>›</a></span>
-                <a href="<%= worker_shipment_path(shipment) %>"><%= shipment.code %></a>
-                <% if shipment.images.attached? %>
-                <% shipment.images.each do |image| %>
-                <%= image_tag(url_for(image), alt: 'image', size: "20", class: "rounded-circle") %>
-                <% end %>
-                <% end %>
+                <a class="fa fa-expand" href="<%= worker_shipment_path(shipment) %>"><%= shipment.code %></a>
             </td>
             <td>
                 <%= shipment.shipment_definition %>
@@ -52,12 +46,10 @@
                 <% end %>
             </td>
             <td>
-                <small><%= shipment.delivery_date %></small>
+                <small><%= shipment.delivery_date.strftime("%y-%m-%d") %></small>
             </td>
             <td>
-                <small><%= shipment.created_worker.name %></small>
-                <br>
-                <small><%= shipment.created_at %></small>
+                <small><%= shipment.created_at.strftime("%y-%m-%d") %></small>
             </td>
             <td class="text-right">
                 <div class="btn-group">
