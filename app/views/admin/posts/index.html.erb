@@ -45,7 +45,7 @@
                 <% @posts.each do |post| %>
                   <tr>
                     <td class="project-status">
-                      <% if post.status %>
+                      <% if post.active? %>
                         <span class="label label-primary">Active</span>
                       <% else %>
                         <span class="label label-danger">Passive</span>

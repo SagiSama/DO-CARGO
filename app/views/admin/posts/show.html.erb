@@ -38,7 +38,7 @@
                                     <dt>Status:</dt>
                                 </div>
                                 <div class="col-sm-8 text-sm-left">
-                                    <% if @post.status %>
+                                    <% if @post.active? %>
                                         <dd class="mb-1"><span class="label label-primary">Active</span></dd>
                                     <% else %>
                                         <dd class="mb-1"><span class="label label-error">Passive</span></dd>

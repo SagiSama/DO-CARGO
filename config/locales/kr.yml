@@ -3,6 +3,13 @@ kr:
   workers_count: "근로자 수"
   shipments_count: "선적 수"
   exuce_user_no_information_found_call_us: 'Excuse us no shipment found, contact us, please :('
+  home: '집'
+  features: '풍모'
+  team: '팀'
+  testimonials: '평가'
+  pricing: '가격'
+  contact: '접촉'
+  news: '평가'
   global:
     save_success: '%{subject} 수수수 :)'
     save_failure: '%{subject} 수수수 :( !'

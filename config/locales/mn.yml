@@ -3,6 +3,13 @@ mn:
   workers_count: "Ажилчдын тоо"
   shipments_count: "Хүрэлтийн тоо"
   exuce_user_no_information_found_call_us: 'Уучлаарай таны хайсан хүргэлт олдсонгүй та бидэнтэй холбогдон асууна уу :('
+  home: 'НҮҮР ХУУДАС'
+  features: 'ОНЦЛОГ'
+  team: 'БАГ'
+  testimonials: 'СЭТГҮҮЛ'
+  pricing: 'ҮНЭ'
+  contact: 'ХОЛБОО БАРИХ'
+  news: 'Мэдээлэл'
   global:
     save_success: '%{subject} амжилттай хадгалагдлаа'
     save_failure: '%{subject} хадгалах үйлдэл амжилтгүй !'

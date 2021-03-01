@@ -8018,10 +8018,10 @@ body.landing-page {
   width: 100%;
 }
 .landing-page .header-back.one {
-  background: url('/assets/header_one.jpg') 50% 0 no-repeat;
+  /*background: url('/assets/header_one.jpg') 50% 0 no-repeat;*/
 }
 .landing-page .header-back.two {
-  background: url('/assets/header_two.jpg') 50% 0 no-repeat;
+  /*background: url('/assets/header_two.jpg') 50% 0 no-repeat;*/
 }
 .landing-page .carousel {
   height: 470px;
