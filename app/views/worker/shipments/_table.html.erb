@@ -1,7 +1,7 @@
 <table class="footable table table-stripped toggle-arrow-tiny" data-paging="false">
     <thead>
         <tr>
-            <th data-toggle="true" class="footable-visible footable-first-column footable-sortable">Code<i class="fa fa-fw fa-sort"></i></span></th>
+            <th data-toggle="true" class="footable footable-visible footable-first-column footable-sortable">Code<i class="fa fa-fw fa-sort"></i></span></th>
             <th data-hide="shipment_definition" class="footable-visible">Name<i class="fa fa-fw fa-sort"></i><span class="footable-sort-indicator"></span></th>
             <th data-hide="shipment_object_description" class="footable-visible">Ship object<i class="fa fa-fw fa-sort"></i><span class="footable-sort-indicator"></span></th>
             <th data-hide="all" class="footable-sortable" style="display: none;">Note</th>
@@ -46,10 +46,10 @@
                 <% end %>
             </td>
             <td>
-                <small><%= shipment.delivery_date.strftime("%y-%m-%d") %></small>
+                <small><%= shipment.delivery_date.strftime("%m/%d/%y") %></small>
             </td>
             <td>
-                <small><%= shipment.created_at.strftime("%y-%m-%d") %></small>
+                <small><%= shipment.created_at.strftime("%m/%d/%y") %></small>
             </td>
             <td class="text-right">
                 <div class="btn-group">
