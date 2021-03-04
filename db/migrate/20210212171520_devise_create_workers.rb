@@ -6,6 +6,7 @@ class DeviseCreateWorkers < ActiveRecord::Migration[6.0]
       t.string :encrypted_password, null: false, default: ""
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at
+      t.boolean :is_manager, default: false
       t.timestamps null: false
     end
 
