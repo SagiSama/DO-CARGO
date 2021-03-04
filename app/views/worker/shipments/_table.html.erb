@@ -44,7 +44,7 @@
                 <small><%= shipment.created_at.strftime("%m/%d/%y") %></small>
                 <small><%= shipment.created_worker.name %></small>
             </td>
-            <td><%= shipment.current_location %></td>
+            <td><%= t("fields.shipment.#{shipment.current_location}") %></td>
             <td class="text-right">
                 <div class="btn-group">
                     <a href="<%= worker_shipment_path(shipment) %>" class="btn btn-white btn-sm"><i class="fa fa-folder"></i> Detail </a>

@@ -13,12 +13,67 @@
 </div>
 
 <div class="wrapper wrapper-content animated fadeInUp">
+    <div class="ibox-content m-b-sm border-bottom">
+        <div class="row">
+            <div class="col-6">
+                <div id="shipment_payment_form">
+                    <%= form_tag shipment_payment_worker_payments_path(@shipment), remote: true do %>
+                    <%= hidden_field_tag "worker_payment[shipment_id]", @shipment.id, class: 'form-control' %>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group row">
+                                <div class="col-sm-10">
+                                    <%= number_field_tag "worker_payment[amount_paid]", '', placeholder: 'amount paid', class: 'form-control' %>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-10">
+                                    <%= select_tag "worker_payment[payment_type]", options_for_select(['account', 'cash']), class: 'form-control' %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group row">
+                                <div class="col-sm-10">
+                                    <%= text_field_tag "worker_payment[note]", '', placeholder: 'Note', class: 'form-control' %>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-4 col-sm-offset-2">
+                                    <%= submit_tag "Create payment", class: "btn btn-primary" %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% end %>
+                </div>
+            </div>
+            <div class="col-6">
+                <div id="state_shipment_form">
+                    <%= form_with url: state_shipment_worker_shipments_path do |f| %>
+                    <%= f.hidden_field :shipment_id, value: @shipment.id, class: "form-control" %>
+                    <div class="form-group row">
+                        <div class="col-sm-10">
+                            <%= f.select(:status, ['registered', 'delivering', 'paid', 'done'], {}, { :class => 'form-control' }) %>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-4 col-sm-offset-2">
+                            <%= submit_tag "Change status", class: "btn btn-primary" %>
+                        </div>
+                    </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-lg-12">
             <div class="ibox product-detail">
                 <div class="ibox-content">
                     <div class="row">
-                        <div class="col-md-5 border">
+                        <div class="col-md-5">
                             <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
                                 <% if @shipment.images.attached? %>
                                     <div class="carousel-inner">
@@ -30,7 +85,7 @@
                                                 <% active = "" %>
                                             <% end %>
                                             <div class="carousel-item <%= active %>">
-                                                <%= image_tag(url_for(image), size: "650") %>
+                                                <%= image_tag(url_for(image), style: 'height:100%;width:auto;') %>
                                             </div>
                                             <% i = i + 1 %>
                                         <% end %>
@@ -59,91 +114,20 @@
                             </div>
                         </div>
                         <div class="col-md-7">
-                            <div class="tabs-container">
-                                <div class="tabs-right">
-                                    <ul class="nav nav-tabs">
-                                        <li><a class="nav-link active" data-toggle="tab" href="#tab-8">Shipment</a></li>
-                                        <li><a class="nav-link" data-toggle="tab" href="#tab-9">Payments</a></li>
-                                    </ul>
-                                    <div class="tab-content">
-                                        <div id="tab-8" class="tab-pane active">
-                                            <div class="panel-body">
-                                                <div id="state_shipment">
-                                                    <%= render :partial => 'state_shipment' %>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div id="tab-9" class="tab-pane">
-                                            <div class="panel-body">
-                                                <div id="shipment_payments">
-                                                    <%= render :partial => 'worker/payments/shipment_payment' %>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <hr>
-                            <div id="shipment_payment_form">
-                                <%= form_tag shipment_payment_worker_payments_path(@shipment), remote: true do %>
-                                <%= hidden_field_tag "worker_payment[shipment_id]", @shipment.id, class: 'form-control' %>
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <div class="form-group row">
-                                                <div class="col-sm-10">
-                                                    <%= number_field_tag "worker_payment[amount_paid]", '', placeholder: 'amount paid', class: 'form-control' %>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <div class="col-sm-10">
-                                                    <%= select_tag "worker_payment[payment_type]", options_for_select(['account', 'cash']), class: 'form-control' %>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="form-group row">
-                                                <div class="col-sm-10">
-                                                    <%= text_field_tag "worker_payment[note]", '', placeholder: 'Note', class: 'form-control' %>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <div class="col-sm-4 col-sm-offset-2">
-                                                    <%= submit_tag "Create payment", class: "btn btn-primary" %>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <% end %>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <hr>
-                            <div id="state_shipment_form">
-                                <%= form_with url: state_shipment_worker_shipments_path do |f| %>
-                                    <%= f.hidden_field :shipment_id, value: @shipment.id, class: "form-control" %>
-                                    <div class="form-group row">
-                                        <div class="col-sm-10">
-                                            <%= f.select(:status, ['registered', 'delivering', 'paid', 'done'], {}, { :class => 'form-control' }) %>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-sm-4 col-sm-offset-2">
-                                            <%= submit_tag "Change status", class: "btn btn-primary" %>
-                                        </div>
-                                    </div>
-                                <% end %>
+                            <div id="state_shipment">
+                                <%= render :partial => 'state_shipment' %>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="ibox-footer">
-                            <span class="float-right">
-                                Full shipment - <i class="fa fa-clock-o"></i> <%= Time.now %>
-                            </span>
-                    shipment footer
-                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div id="shipment_payments">
+                <%= render :partial => 'worker/payments/shipment_payment' %>
             </div>
         </div>
     </div>

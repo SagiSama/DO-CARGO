@@ -1,33 +1,50 @@
 <h2 class="font-bold m-b-xs">
-    <%= @shipment.code %> Shipment detail
+    <%= @shipment.code %>
+    <span class="badge badge-info"><%= @shipment.status %></span>
+    <span class="badge badge-info"><%= @shipment.delivery_type %></span><br>
 </h2>
-<span class="badge badge-info"><%= @shipment.status %></span><br>
 <small><%= @shipment.shipment_definition %>.</small>
 <div class="m-t-md">
     <h2 class="product-main-price">$<%= @shipment.price %> <small class="text-muted"><%= @shipment.about_payment %></small> </h2>
+    <dd>Weight: <%= @shipment.weight %></dd>
+    <dt><%= t("fields.shipment.#{@shipment.current_location}") %></dt>
 </div>
 <hr>
 <h4>Shipment object description</h4>
 <div class="small text-muted">
-    <%= @shipment.shipment_object_description %>
     <br>
+    <%= @shipment.shipment_object_description %>
     <br>
     <%= @shipment.note %>.
 </div>
-<dl class="small m-t-md">
-    <dt>Description lists</dt>
-    <dd>Delivery date: <%= @shipment.delivery_date %></dd>
-    <dd>Phone: <%= @shipment.phone %></dd>
-    <dd>Status history: <b><%= @shipment.status_history %></b></dd>
-    <dd>Created person: <b><%= @shipment.created_worker.name %></b></dd>
-    <dd>Updated person: <b><%= @shipment.updated_worker.name %></b></dd>
-    <dd>Created at: <b><%= @shipment.created_at %></b></dd>
-    <dd>Updated at: <b><%= @shipment.updated_at %></b></dd>
-    <dd>Customer phone: <b><%= @shipment.customer_phone %></b></dd>
-    <dd>Recipient phone: <b><%= @shipment.recipient_phone %></b></dd>
-    <dd>Email: <b><%= @shipment.email %></b></dd>
-    <dd>Customer name: <b><%= @shipment.customer_name %></b></dd>
-    <dd>Recipient name: <b><%= @shipment.recipient_name %></b></dd>
-    <dd>Location from: <b><%= @shipment.location_from %></b></dd>
-    <dd>Location to: <b><%= @shipment.location_to %></b></dd>
-</dl>
+<div class="row">
+    <div class="col-6">
+        <dl class="small m-t-md">
+            <dt>Description lists</dt>
+            <dd>Shipment type: <%= @shipment.shipment_type %></dd>
+            <dd>location to: <%= @shipment.location_to %></dd>
+            <dd>location from: <%= @shipment.location_from %></dd>
+            <dd>Delivery date: <%= @shipment.delivery_date %></dd>
+            <dd>Created at: <b><%= @shipment.created_at %></b></dd>
+            <dd>Updated at: <b><%= @shipment.updated_at %></b></dd>
+            <dd>Created person: <b><%= @shipment.created_worker.name %></b></dd>
+            <dd>Updated person: <b><%= @shipment.updated_worker.name %></b></dd>
+        </dl>
+    </div>
+    <div class="col-6">
+        <dl class="small m-t-md">
+            <dt>Contact lists</dt>
+            <dd>Phone: <%= @shipment.phone %></dd>
+            <dd>Email: <b><%= @shipment.email %></b></dd>
+            <dd>Customer name: <b><%= @shipment.customer_name %></b></dd>
+            <dd>Customer phone: <b><%= @shipment.customer_phone %></b></dd>
+            <dd>Customer address: <b><%= @shipment.customer_address %></b></dd>
+            <dd>Recipient name: <b><%= @shipment.recipient_name %></b></dd>
+            <dd>Recipient phone: <b><%= @shipment.recipient_phone %></b></dd>
+            <dd>Recipient address: <b><%= @shipment.recipient_address %></b></dd>
+        </dl>
+    </div>
+    <div class="col-12">
+        <dd>Status history: <b><%= @shipment.status_history %></b></dd>
+    </div>
+</div>
