@@ -1,7 +1,5 @@
 <div class="div">
     <% if @shipment %>
-        <%= @shipment.code %>
-        <%= @shipment.note %>
-        <%= @shipment.status %>
+    <h3><%= t 'landing_shipment_track', id: @shipment.code, current_location: t("fields.shipment.#{@shipment.current_location}").html_safe %></h3>
     <% end %>
 </div>

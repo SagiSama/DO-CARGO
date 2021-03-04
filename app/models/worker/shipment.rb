@@ -2,10 +2,7 @@ module Worker
 
 class Shipment < Base::Shipment
 
-  validates :shipment_definition, presence: true
-  validates :shipment_object_description, presence: true
-  validates :about_payment, presence: true
-  validates :delivery_date, presence: true
+  validates :weight, presence: true
   validates :phone, presence: true
   validates :status, presence: true
 

@@ -2152,7 +2152,7 @@ button.dim:active:before {
 .page-link:hover {
   color: #676a6c;
 }
-.footable {
+.table {
   font-size: 12px;
 }
 .pagination .footable-page.active a {

@@ -10,6 +10,15 @@ mn:
   pricing: 'ҮНЭ'
   contact: 'ХОЛБОО БАРИХ'
   news: 'Мэдээлэл'
+  landing_shipment_track: "Сайн байна уу таны %{id} дугаартай илгээмж %{current_location} байна"
   global:
     save_success: '%{subject} амжилттай хадгалагдлаа'
     save_failure: '%{subject} хадгалах үйлдэл амжилтгүй !'
+  fields:
+    shipment:
+      in_korea_stock: 'Сологосын агуулхад'
+      in_shipment: 'улс хоорондын тээвэрт ачигдсан'
+      in_bonded_storage: 'гааль дээр буусан'
+      waited_in_bonded_storage: 'гааль дээр саатсан'
+      in_mongolia_stock: 'Монголын агуулхад'
+      delivered: 'хүргэгдсэн'

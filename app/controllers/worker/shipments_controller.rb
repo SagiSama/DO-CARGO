@@ -68,22 +68,27 @@ class ShipmentsController < ApplicationController
   end
 
   def shipment_params
-    params.require(:worker_shipment).permit(:shipment_definition,
+    params.require(:worker_shipment).permit(:weight,
+                                            :delivery_type,
+                                            :shipment_type,
+                                            :location_to,
+                                            :location_from,
+                                            :price,
+                                            :status,
+                                            :current_location,
+                                            :shipment_definition,
                                             :shipment_object_description,
                                             :about_payment,
-                                            :price,
                                             :note,
                                             :delivery_date,
                                             :phone,
-                                            :status,
-                                            :customer_phone,
-                                            :recipient_phone,
                                             :email,
                                             :customer_name,
+                                            :customer_phone,
+                                            :customer_address,
                                             :recipient_name,
-                                            :location_from,
-                                            :location_to,
-                                            :delivered_date,
+                                            :recipient_phone,
+                                            :recipient_address,
                                             images: [])
   end
 end

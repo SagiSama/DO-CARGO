@@ -90,23 +90,28 @@ ActiveRecord::Schema.define(version: 2021_02_27_091636) do
 
   create_table "shipments", force: :cascade do |t|
     t.string "code", default: ""
-    t.string "shipment_definition", default: "", null: false
-    t.string "shipment_object_description", default: "", null: false
-    t.string "about_payment", default: "", null: false
-    t.string "note", default: ""
-    t.datetime "delivery_date", null: false
-    t.string "phone", default: "", null: false
-    t.string "customer_phone", default: ""
-    t.string "recipient_phone", default: ""
-    t.string "email", default: ""
-    t.string "customer_name", default: ""
-    t.string "recipient_name", default: ""
-    t.string "location_from", default: ""
-    t.string "location_to", default: ""
+    t.decimal "weight", null: false
+    t.integer "delivery_type", default: 0, comment: "0->land, 1->air"
+    t.integer "shipment_type", default: 0, comment: "0->normal, 1->express"
+    t.integer "location_to", default: 0, comment: "0->Mongolia, 1->Korea"
+    t.integer "location_from", default: 0, comment: "0->Korea, 1->Mongolia"
+    t.decimal "price", default: "0.0"
     t.integer "status", default: 0, null: false, comment: "0->burgtesen, 1->zamd ywaa, 2->tulbur tologdson, 3->duussan"
     t.string "status_history", default: "", comment: "burgtesen, zamd ywaa, tulbur tologdson, duussan"
-    t.datetime "delivered_date"
-    t.decimal "price", default: "0.0", null: false
+    t.integer "current_location", default: 0, comment: "korea aguulah, achigdsan, gaali deer buusan, mongolia aguulahad, hurgegdsen"
+    t.string "shipment_definition", default: ""
+    t.string "shipment_object_description", default: ""
+    t.string "about_payment", default: ""
+    t.string "note", default: ""
+    t.datetime "delivery_date"
+    t.string "phone", default: "", null: false
+    t.string "email", default: ""
+    t.string "customer_name", default: ""
+    t.string "customer_phone", default: ""
+    t.string "customer_address", default: ""
+    t.string "recipient_name", default: ""
+    t.string "recipient_phone", default: ""
+    t.string "recipient_address", default: ""
     t.bigint "created_worker_id", null: false
     t.bigint "updated_worker_id", null: false
     t.datetime "created_at", precision: 6, null: false
