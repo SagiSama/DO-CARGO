@@ -51,7 +51,7 @@
             <div class="col-6">
                 <div id="state_shipment_form">
                     <%= form_with url: state_shipment_worker_shipments_path do |f| %>
-                    <%= f.hidden_field :shipment_id, value: @shipment.id, class: "form-control" %>
+                    <%= f.hidden_field :id, value: @shipment.id, class: "form-control" %>
                     <div class="form-group row">
                         <div class="col-sm-10">
                             <%= f.select(:status, ['registered', 'delivering', 'paid', 'done'], {}, { :class => 'form-control' }) %>

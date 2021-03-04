@@ -2,6 +2,7 @@ module Worker
 
 class ShipmentsController < ApplicationController
   before_action :target_shipment, except: %i[index new create]
+  before_action :verify_role, only: %i[update destroy]
 
   def index
     @shipments = Shipment.search(params).page(params[:page]).per(params[:limit])
@@ -51,7 +52,6 @@ class ShipmentsController < ApplicationController
   end
 
   def state_shipment
-    @shipment = Shipment.find_by(id: params[:shipment_id])
     if @shipment.update({status: params[:status], status_history: "#{@shipment.status_history}, #{params[:status]}"})
       flash[:failure] = nil
       flash[:success] = t('global.save_success', subject: 'shipment')
@@ -65,6 +65,13 @@ class ShipmentsController < ApplicationController
 
   def target_shipment
     @shipment = Shipment.find_by(id: params[:id])
+  end
+
+  def verify_role
+    if !current_worker.manager? && @shipment.created_worker_id != current_worker.id
+      flash[:failure] = t('global.save_failure', subject: "only manager can modify other user's data")
+      redirect_to worker_shipments_path
+    end
   end
 
   def shipment_params

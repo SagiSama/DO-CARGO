@@ -2,6 +2,8 @@ module Worker
 
 class PaymentsController < ApplicationController
   before_action :target_payment, except: %i[index new create]
+  before_action :verify_role, except: %i[index new create edit shipment_payment]
+  before_action :verify_role_shipment, only: :shipment_payment
 
   def index
     @payments = Payment.search(params).page(params[:page]).per(params[:limit])
@@ -68,6 +70,21 @@ class PaymentsController < ApplicationController
 
   def target_payment
     @payment = Payment.find_by(id: params[:id])
+  end
+
+  def verify_role
+    if !current_worker.manager? && @payment.created_worker_id != current_worker.id
+      flash[:failure] = t('global.save_failure', subject: "only manager can modify other user's data")
+      redirect_to worker_payments_path
+    end
+  end
+
+  def verify_role_shipment
+    shipment = Shipment.find_by(id: payment_params[:shipment_id])
+    if !current_worker.manager? && shipment.created_worker_id != current_worker.id
+      flash[:failure] = t('global.save_failure', subject: "only manager can modify other user's data")
+      redirect_to worker_payments_path
+    end
   end
 
   def payment_params
